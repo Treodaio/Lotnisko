@@ -36,9 +36,7 @@ ul {
 
 li {
     list-style-type: none;
-    font-size: 2rem;
     flex-grow: 1;
-    text-decoration: none;
     cursor: pointer;
     height: 100%;
     display: flex;
@@ -52,13 +50,21 @@ li i {
 }
 
 li a {
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
     display: inline-block;
+    transition: .5s;
 }
 
 li:hover {
     background-color: white;
     color: black;
     transition: .5s;
+}
+
+li:hover a {
+    color: black;
 }
 
 main {
