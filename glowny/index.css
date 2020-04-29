@@ -14,7 +14,6 @@
     width: 100vw;
     height: 100vh;
     font-family: 'Roboto', sans-serif;
-    border: 3px solid black;
     display: flex;
     flex-direction: column;
 }
@@ -22,7 +21,6 @@
 main {
     position: relative;
     background-color: black;
-    /* border: 2px solid yellowgreen; */
     width: 100%;
     flex-basis: 100%;
     overflow: hidden;
@@ -60,11 +58,10 @@ main img:nth-child(3) {
 
 h1 {
 
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.6);
     font-style: italic;
     color: white;
-    width: 70%;
-    border: 2px solid white;
+    width: 99%;
     border-radius: 20px;
     position: absolute;
     top: 50%;

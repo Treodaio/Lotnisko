@@ -8,14 +8,13 @@
 
 .wrapper {
     padding-top: 10vh;
-    background-image: url("../img/funky-lines.png");
+    background: linear-gradient(to top, aqua, blue);
     display: flex;
     flex-direction: column;
 }
 
 nav {
     max-height: 10vh;
-    border-bottom: 2px solid black;
 }
 
 
@@ -26,7 +25,7 @@ main {
     align-self: center;
     height: 150%;
     width: 75%;
-    border: 2px solid black;
+    border: 2px solid transparent;
     color: black;
     max-width: 900px;
 }

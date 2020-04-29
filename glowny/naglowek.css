@@ -9,6 +9,7 @@
 
 
 nav {
+    z-index: 1;
     font-family: 'Roboto', sans-serif;
     width: 100%;
     position: fixed;
