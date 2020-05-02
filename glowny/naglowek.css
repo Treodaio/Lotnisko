@@ -61,17 +61,31 @@ li:hover a {
 }
 
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
+    nav {
+        height: 20vh;
+    }
 
     ul {
         flex-wrap: wrap;
-
     }
 
     li {
         flex-grow: 0;
-        flex-basis: 30%;
+        flex-basis: 25%;
         height: 50%;
     }
 
+}
+
+@media (max-width: 620px) {
+    nav {
+        height: 40vh;
+    }
+
+    li {
+        flex-grow: 0;
+        flex-basis: 25%;
+        height: 25%;
+    }
 }

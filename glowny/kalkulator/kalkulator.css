@@ -1,0 +1,98 @@
+/* Font do wielkiego tekstu - Noto Serif */
+
+.wrapper {
+    padding-top: 10vh;
+    box-sizing: border-box;
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    background-color: black;
+    background-image: url(funky-lines.png);
+}
+
+aside {
+    min-width: 340px;
+    max-width: 341px;
+    flex-basis: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculus {
+    /* background-color: white; */
+    background: linear-gradient(to top, blue, aqua);
+    width: 320px;
+    height: 535px;
+    position: fixed;
+    border: 2px solid #24292e;
+    border-radius: 15px;
+    top: 20%;
+    left: 10px;
+}
+
+.panel {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.result {
+    border: 2px solid #24292e;
+    border-radius: 10px;
+    line-height: 12vh;
+    text-align: right;
+    padding-right: 15px;
+    font-size: 5vh;
+    color: white;
+    background-color: #24292e;
+    height: 12vh;
+    flex-basis: 100%;
+    cursor: default;
+}
+
+.result~div {
+    background-color: #24292e;
+    color: white;
+    line-height: 8vh;
+    text-align: center;
+    flex-grow: 1;
+    flex-basis: 28%;
+    height: 8vh;
+    font-size: 36px;
+    margin: 1%;
+    border: 2px solid transparent;
+    border-radius: 10%;
+}
+
+div.result~div:hover {
+    cursor: pointer;
+    background-color: #40b2fd;
+}
+
+article {
+    flex-grow: 1;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4rem;
+    font-family: 'Roboto', 'sans-serif';
+    padding: 20px;
+}
+
+h2 {
+    padding-top: 100px;
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Roboto', 'sans-serif';
+}
+
+p {
+    font-family: 'Noto Serif', serif;
+    padding: 20px 20px 0 5px;
+    font-size: 2rem;
+    text-align: justify;
+    line-height: 150%;
+}

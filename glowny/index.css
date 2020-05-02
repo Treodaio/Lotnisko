@@ -156,7 +156,7 @@ button:hover span {
    
 } */
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
 
 
     .logo img {
@@ -164,11 +164,11 @@ button:hover span {
     }
 
     h1 {
-        top: 30%;
+        top: 60%;
     }
 
     button {
-        top: 75%;
+        top: 85%;
     }
 
 }

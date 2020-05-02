@@ -2,7 +2,9 @@
     padding-top: 10vh;
     min-height: 100vh;
     position: relative;
-    background: linear-gradient(to top, aqua, blue);
+    /* background: linear-gradient(to top, aqua, blue); */
+    background-image: url(clouds.jpg);
+    filter: saturate(120%);
 }
 
 /* #24292e- kolor nagłówka */
@@ -79,10 +81,10 @@ label input {
 
 button {
     flex-basis: 10%;
-    width: 30%;
-    margin-left: calc(100%/ 2 - 15%);
+    width: 40%;
+    margin-left: calc(100%/ 2 - 20%);
     border: 2px solid #dc6180;
-    border-radius: 16px;
+    border-radius: 20px;
     padding: 10px;
     background-color: #242734;
     color: #dc6180;
@@ -109,4 +111,18 @@ p {
     text-align: center;
     flex-basis: 15%;
     /* border: 2px solid red; */
+}
+
+@media (max-width: 600px) {
+    .wrapper {
+        height: 120vh;
+
+    }
+
+    main {
+        height: 55%;
+        width: 80%;
+        top: 60%;
+    }
+
 }
