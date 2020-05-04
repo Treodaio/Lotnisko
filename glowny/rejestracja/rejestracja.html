@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap&subset=latin-ext" rel="stylesheet">
     <script src="https://kit.fontawesome.com/005dd1e3a8.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="rejestracja.css">
-    <link rel="stylesheet" href="naglowek.css">
+    <link rel="stylesheet" href="../naglowek.css">
 
 </head>
 
@@ -45,9 +45,27 @@
 
                 <button>Zarejestruj się</button>
             </form>
+            <section class="account">
+                <h2>Masz już konto? </h1>
+                    <span class="login">Zaloguj się</span>
+
+            </section>
         </main>
     </div>
+
+    <div class="login-modal">
+        <aside>
+            <h1>Zaloguj się na swoje konto</h1>
+            <form action="...">
+                <label id="username" for="username"><input type="text" placeholder="Login"></label>
+                <label id="password" for="password"><input type="password" placeholder="Hasło"></label>
+                <button>Zaloguj się</button>
+            </form>
+            <span class="hide">X</span>
+        </aside>
+    </div>
     <script src="rejestracja.js"></script>
+    <script src="login.js"></script>
 </body>
 
 </html>
