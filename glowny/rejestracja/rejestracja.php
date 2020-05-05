@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany'] == true))
+{
+header('Location: oferta.php');
+exit();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -30,7 +41,7 @@
         <main>
             <h1>Nie posiadasz konta? Zarejestruj się w serwisie</h1>
             <p class="warning">Dziękujemy za rzetelne wypełnienie powyższego formularza.</p>
-            <form action="...">
+            <form action="..." method="POST">
                 <label id="imie" for="imie"><input type="text" placeholder="Imię"></label>
                 <label id="nazwisko" for="nazwisko"><input type="text" placeholder="Nazwisko"></label>
                 <label id="kraj" for="kraj"><input type="text" placeholder="Kraj pochodzenia"></label>
@@ -56,10 +67,15 @@
     <div class="login-modal">
         <aside>
             <h1>Zaloguj się na swoje konto</h1>
-            <form action="zaloguj.php">
+            <form action="zaloguj.php" method="POST">
                 <label id="username" for="username"><input type="text" name="login" placeholder="Login"></label>
                 <label id="password" for="password"><input type="password" name="haslo" placeholder="Hasło"></label>
                 <button>Zaloguj się</button>
+
+                <?php
+            // if(isset($_SESSION['blad'])) {echo $_SESSION['blad'];}
+                ?>
+
             </form>
             <span class="hide">X</span>
         </aside>
