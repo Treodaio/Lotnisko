@@ -1,0 +1,111 @@
+/* font-family: 'Noto Serif', serif; */
+.wrapper {
+    padding-top: 10vh;
+    min-height: 200vh;
+    position: relative;
+    /* background: linear-gradient(to top, aqua, blue); */
+    background-color: black;
+}
+
+.wrapper * {
+    box-sizing: border-box;
+}
+
+/* #24292e- kolor nagłówka */
+/* #242734 - kolor inspiracji */
+.gallery {
+    border: 2px solid white;
+    font-family: 'Roboto', 'sans-serif';
+    background-color: black;
+    color: white;
+    width: 99%;
+    height: 80%;
+    /* border: 2px solid transparent; */
+    /* border-radius: 20px; */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    display: flex;
+    flex-direction: column;
+
+}
+
+.gallery .title {
+    flex-basis: 25%;
+    /* border: 2px solid red; */
+    position: relative;
+}
+
+.gallery .title h1 {
+    font-family: 'Noto Serif', serif;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    /* border: 2px solid white; */
+}
+
+.gallery .images {
+
+    flex-basis: 85%;
+    /* border: 2px solid green; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.images a {
+    margin: 4% 2%;
+    flex-basis: 20%;
+
+    height: 25%;
+    border: 2px solid white;
+    border-radius: 12px;
+}
+
+.images img {
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    border-radius: 12px;
+}
+
+p {
+    line-height: 170%;
+    font-style: oblique;
+    font-family: 'Noto Serif', serif;
+    /* border: 2px solid red; */
+    padding: 10%;
+    align-self: flex-end;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 900px) {
+    .gallery {
+        top: 45%;
+    }
+}
+
+
+@media(max-width: 620px) {
+    .gallery {
+        top: 55%;
+    }
+
+    .gallery .title h1 {
+        padding: 10px;
+        font-size: 2rem;
+    }
+}
+
+@media(max-width: 500px) {
+    .gallery .title h1 {
+        /* font-size: 2rem; */
+    }
+}
