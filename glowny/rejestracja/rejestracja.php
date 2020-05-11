@@ -142,7 +142,7 @@ if ((isset($_POST['imie'])))
                      //DODANIE UZYTKOWNIKA DO BAZY
                      if($wszystko_ok == true)
                       {
-                        if($polaczenie ->query("INSERT INTO pasazerowie VALUES(NULL, '$imie', '$nazwisko', '$kraj','$paszport','$dowod','$login','$email','$haslo_hash')")) 
+                        if($polaczenie->query("INSERT INTO pasazerowie VALUES(NULL, '$imie', '$nazwisko', '$kraj','$paszport','$dowod','$login','$haslo_hash','$email')")) 
                         {
                             $_SESSION['udane'] = true;
                             header('Location: witamy.php');
