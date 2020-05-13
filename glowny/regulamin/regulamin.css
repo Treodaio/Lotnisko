@@ -7,8 +7,10 @@
 }
 
 .wrapper {
+
     padding-top: 10vh;
-    background: linear-gradient(to top, aqua, blue);
+    /* background: linear-gradient(to top, aqua, blue); */
+    background-image: url(../kalkulator/funky-lines.png);
     display: flex;
     flex-direction: column;
 }
@@ -21,7 +23,7 @@ main {
     align-self: center;
     height: 150%;
     width: 75%;
-    border: 2px solid transparent;
+    border: 2px solid #24292e;
     color: black;
     max-width: 900px;
     border-radius: 18px;
