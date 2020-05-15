@@ -7,12 +7,14 @@
 }
 
 .wrapper {
-
     padding-top: 10vh;
-    /* background: linear-gradient(to top, aqua, blue); */
-    background-image: url(../kalkulator/funky-lines.png);
+    background: linear-gradient(to top, aqua, blue);
     display: flex;
     flex-direction: column;
+}
+
+nav {
+    max-height: 10vh;
 }
 
 
@@ -23,10 +25,9 @@ main {
     align-self: center;
     height: 150%;
     width: 75%;
-    border: 2px solid #24292e;
+    border: 2px solid transparent;
     color: black;
     max-width: 900px;
-    border-radius: 18px;
 }
 
 h1 {
@@ -66,21 +67,31 @@ footer p {
     text-align: center;
 }
 
-@media (max-width: 900px) {
+
+
+
+@media (max-width: 700px) {
+    nav {
+        flex-basis: 30%;
+        max-height: 30vh;
+
+    }
+
     .wrapper {
         padding-top: 30vh;
     }
 
+    ul {
+        flex-wrap: wrap;
 
-}
-
-@media (max-width: 620px) {
-    .wrapper {
-        padding-top: 30vh;
     }
 
-    main {
-        width: 100%;
-        margin-top: 10vh;
+    li {
+        flex-grow: 0;
+        /* border: 2px solid red; */
+        flex-basis: 30%;
+        height: 50%;
     }
+
+
 }

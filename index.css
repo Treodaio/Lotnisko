@@ -88,8 +88,7 @@ p:hover {
     color: black;
 }
 
-#button {
-    text-decoration: none;
+button {
     overflow: hidden;
     color: white;
     position: absolute;
@@ -106,7 +105,7 @@ p:hover {
     transition: .5s ease-out;
 }
 
-#button span {
+button span {
     opacity: 0;
     position: absolute;
     top: 50%;
@@ -119,11 +118,11 @@ p:hover {
     transition: .5s ease-out;
 }
 
-#button:hover {
+button:hover {
     color: black;
 }
 
-#button:hover span {
+button:hover span {
     opacity: 1;
     transform: scale(30);
     transform: translate(-50%, -50);
@@ -168,7 +167,7 @@ p:hover {
         top: 60%;
     }
 
-    #button {
+    button {
         top: 85%;
     }
 

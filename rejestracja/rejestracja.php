@@ -8,6 +8,7 @@ header('Location: oferta.php');
 exit();
 }
 
+
 if ((isset($_POST['imie'])))
 {
 
@@ -192,7 +193,7 @@ if ((isset($_POST['imie'])))
             <li><i class="far fa-clipboard"></i><a href="#">Rejestracja</a></li>
             <li><i class="far fa-images"></i><a href="../galeria/galeria.html">Galeria</a></li>
             <li><i class="fas fa-route"></i><a href="../podroz/podroz.html">Podróż</a></li>
-            <li><i class="fas fa-ticket-alt"></i><a href="../oferta/oferta.html">Oferta</a></li>
+            <li><i class="fas fa-ticket-alt"></i><a href="./oferta/oferta.html">Oferta</a></li>
             <li><i class="fas fa-user-friends"></i><a href="../pracownik/pracownik.html">Dla pracownika</a></li>
             <li><i class="fas fa-calculator"></i><a href="../kalkulator/kalkulator.html">Kalkulator</a></li>
             <li><i class="far fa-clipboard"></i><a href="../regulamin/regulamin.html">Regulamin</a></li>
@@ -219,8 +220,7 @@ if ((isset($_POST['imie'])))
 
             
             <form method="POST">
-                <label id="imie" for="imie"><input type="text" value = 
-                "<?php if(isset($_SESSION['fr_imie'])) { echo $_SESSION['fr_imie']; unset($_SESSION['fr_imie']);  }?>" name="imie" placeholder="Imię"></label>
+                <label id="imie" for="imie"><input type="text" value = "<?php if(isset($_SESSION['fr_imie'])) { echo $_SESSION['fr_imie']; unset($_SESSION['fr_imie']);  }?>" name="imie" placeholder="Imię"></label>
                 <label id="nazwisko" for="nazwisko"><input type="text" value = "<?php if(isset($_SESSION['fr_nazwisko'])) { echo $_SESSION['fr_nazwisko']; unset($_SESSION['fr_nazwisko']);  }?>" name="nazwisko" placeholder="Nazwisko"></label>
                 <label id="kraj" for="kraj"><input type="text" value = "<?php if(isset($_SESSION['fr_kraj'])) { echo $_SESSION['fr_kraj']; unset($_SESSION['fr_kraj']);  }?>" name="kraj" placeholder="Kraj pochodzenia"></label>
 

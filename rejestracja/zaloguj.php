@@ -36,8 +36,6 @@ if ($polaczenie ->connect_errno!=0)
         {
             $_SESSION['zalogowany'] = true;
 
-        
-
             $_SESSION['id'] = $wiersz['id'];
             $_SESSION['imie'] = $wiersz['imie'];
             $_SESSION['nazwisko'] = $wiersz['nazwisko'];
@@ -63,7 +61,6 @@ if ($polaczenie ->connect_errno!=0)
     }
 
  }
-
 
 $polaczenie->close();
 }
