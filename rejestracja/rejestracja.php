@@ -1,6 +1,6 @@
 <?php
 session_start();
-error_reporting(0);
+// error_reporting(0);
 
 if((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany'] == true))
 {
@@ -50,7 +50,7 @@ if ((isset($_POST['imie'])))
         }
         
 
-        $haslo_hash = password_hash($haslo2, PASSWORD_DEFAULT);
+        // $haslo_hash = password_hash($haslo2, PASSWORD_DEFAULT);
 
 
 
@@ -142,7 +142,7 @@ if ((isset($_POST['imie'])))
                      //DODANIE UZYTKOWNIKA DO BAZY
                      if($wszystko_ok == true)
                       {
-                        if($polaczenie->query("INSERT INTO pasazerowie VALUES(NULL, '$imie', '$nazwisko', '$kraj','$paszport','$dowod','$login','$haslo_hash','$email')")) 
+                        if($polaczenie->query("INSERT INTO pasazerowie VALUES(NULL, '$imie', '$nazwisko', '$kraj','$paszport','$dowod','$login','$haslo2','$email')")) 
                         {
                             $_SESSION['udane'] = true;
                             header('Location: witamy.php');
@@ -247,6 +247,12 @@ if ((isset($_POST['imie'])))
     <div class="login-modal">
         <aside>
             <h1>Zaloguj się na swoje konto</h1>
+            <?php
+            if(isset($_SESSION['blad']))
+            {
+                echo $_SESSION['blad'];
+            }
+            ?>
             <form action="zaloguj.php" method="POST">
                 <label id="username" for="username"><input type="text" name="login" placeholder="Login"></label>
                 <label id="password" for="password"><input type="password" name="haslo" placeholder="Hasło"></label>

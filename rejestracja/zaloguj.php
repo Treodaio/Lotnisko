@@ -1,68 +1,68 @@
-<?php
-
+<?php 
 session_start();
-require_once "connect.php";
-if(!isset($_POST['login']) || (!isset($_POST['haslo'])))
+
+if((!isset($_POST['login'])) || (!isset($_POST['haslo'])))
 {
     header('Location: rejestracja.php');
+    exit();
 }
-$polaczenie = @new mysqli($host, $db_user, $db_password, $db_name);
 
-if ($polaczenie ->connect_errno!=0)
+require_once "connect.php";
+$polaczenie = new mysqli($host, $db_user, $db_password, $db_name);
+
+if($polaczenie->connect_errno!=0)
 {
-    echo "Error: ".$polaczenie->connect_errno."Opis błedu: ".$polaczenie->connect_error;
-    //jezeli udalo sie nawiazac polaczenie
-} else {
+    echo "Blad: ".$polaczenie->connect_errno."Opis: ".$polaczenie->connect_error;
+}
+else {
     $login = $_POST['login'];
     $haslo = $_POST['haslo'];
+    // $zahaszowane = password_hash($haslo, PASSWORD_DEFAULT);
     
-    
-    //sanityzacja kodu
-    $login = htmlentities($login, ENT_QUOTES, "UTF-8");
 
+$sql = "SELECT * FROM pasazerowie WHERE login = '$login' AND haslo = '$haslo'";
 
-//  $sql ="SELECT * FROM pasazerowie WHERE login = '$login' AND haslo = '$haslo'" ;
-
-    //jezeli udalo sie wykonac zapytanie do bazy danych
- if ($rezultat = $polaczenie->query(sprintf("SELECT * FROM pasazerowie WHERE login = '%s'", mysqli_real_escape_string($polaczenie, $login))))
- {
-    $ilu_userow = $rezultat->num_rows;
-
-    if($ilu_userow>0)
+    //zapytanie zostało poprawnie wykonane. Łapiemy zwrócone z bazy rekordy
+    if ($rezultat = $polaczenie->query($sql))
     {
-        $wiersz = $rezultat->fetch_assoc();
-
-        if (password_verify($haslo, $wiersz['haslo']))
+        $ilu_userow = $rezultat->num_rows;
+        if($ilu_userow >0)
         {
-            $_SESSION['zalogowany'] = true;
-
-            $_SESSION['id'] = $wiersz['id'];
-            $_SESSION['imie'] = $wiersz['imie'];
-            $_SESSION['nazwisko'] = $wiersz['nazwisko'];
-            $_SESSION['kraj'] = $wiersz['kraj_pochodzenia'];
-            $_SESSION['paszport'] = $wiersz['nr_paszportu'];
-            $_SESSION['dowod'] = $wiersz['nr_dowodu'];
-            $_SESSION['login'] = $wiersz['login'];
-            $_SESSION['email'] = $wiersz['email'];
+            $wiersz = $rezultat->fetch_assoc();
+         
+            //sprawdzanie zahaszowanego hasla
+       
             
-            // unset($_SESSION['blad']);
+                $_SESSION['zalogowany'] = true;
+                //wiersz to nazwa tablicy. login to index wiersza.
+            
+                $_SESSION['id'] = $wiersz['id'];
+                $_SESSION['imie']= $wiersz['imie'];
+                $_SESSION['nazwisko']= $wiersz['nazwisko'];
+                $_SESSION['kraj']= $wiersz['kraj_pochodzenia'];
+                $_SESSION['paszport']= $wiersz['nr_paszportu'];
+                $_SESSION['dowod']= $wiersz['nr_dowodu'];
+                $_SESSION['login']= $wiersz['login'];
+                $_SESSION['email']= $wiersz['email'];
 
-            $rezultat->close();
-            header('Location: oferta.php');
-        } else {
-            header('Location: rejestracja.php');
+                unset($_SESSION['blad']);
+
+                $rezultat->free_result();
+
+                header('Location: oferta.php');
+            
+        }else {
+            //login jest nieprawidlowy
+          $_SESSION['blad'] = '<span style = "color:red"> Nieprawidłowy login lub hasło </span>';
+
+          header("Location: rejestracja.php");
         }
-    }else {
 
-        // $_SESSION['blad'] = '<p> Nieprawidłowy login lub haslo</p>';
-        // header('Location: rejestracja.php');
 
-        header('Location: rejestracja.php');
     }
 
- }
 
-$polaczenie->close();
+    $polaczenie -> close();
 }
 
-?>
+?> 
