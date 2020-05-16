@@ -168,30 +168,30 @@ p .alert {
 }
 
 #accept {
+    padding-top: 1%;
+    color: #aab1be;
     width: 95%;
     margin-left: 2.5%;
     flex-basis: 10%;
     text-align: center;
     /* border: 2px solid red; */
+    margin-left: 20px;
+    font-size: 20px;
 }
 
 
-h3 {
-    margin-top: 1%;
-    color: #aab1be;
-    font-size: 2rem;
+input[type="checkbox"] {
+    -webkit-appearance: checkbox;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-radius: 16px;
 }
 
-
-h3 input[type="checkbox"] {
-    /* nie działa. */
-    padding: 1%;
-}
-
-a {
+#accept a {
     padding-left: 10px;
     color: #33e05e;
-    font-size: 2rem;
+    font-size: 20px;
     text-decoration: none;
 }
 

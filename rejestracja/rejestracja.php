@@ -234,8 +234,8 @@ if ((isset($_POST['imie'])))
                 <label id="haslo" for="haslo"><input type="text"  name="haslo" placeholder="Hasło"></label>
                 <label id="haslo_2" for="haslo"><input type="text" name="haslo2" placeholder="Powtórz hasło"></label>
                 <div id="accept">
-                   <label><h3> <input type="checkbox" name="checkbox" value = "">Akceptuję
-                        <a href="../regulamin/regulamin.html">regulamin</a></h3> </label>
+                   <input type="checkbox" name="checkbox" value = "">Akceptuję
+                        <a href="../regulamin/regulamin.html">regulamin</a>
                 </div>
 
                 <button>Zarejestruj się</button>
