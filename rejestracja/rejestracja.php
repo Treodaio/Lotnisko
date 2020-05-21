@@ -49,7 +49,7 @@ if ((isset($_POST['imie'])))
 			$_SESSION['error'] = "Regulamin nie został zaakceptowany !";
         }
         
-
+        //haszowanie z przyczyn mi nieznanych nie chce działać prawidłowo.
         // $haslo_hash = password_hash($haslo2, PASSWORD_DEFAULT);
 
 

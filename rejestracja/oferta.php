@@ -13,7 +13,7 @@ if(!isset($_SESSION['zalogowany']))
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zakup bilet</title>
+    <title>Twój panel</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="oferta.css">
 </head>
@@ -35,8 +35,90 @@ if(!isset($_SESSION['zalogowany']))
     ?>
     </aside>
     <section class = "bilet">
-        <h1>Kup bilet</h1>
-    </section>
+        <h1>Moje konto - posiadane bilety</h1>
+        <!-- M O J E K O N T O    -->
+</section>
+
+
+<aside class = "search">
+<h1>Tutaj wyszukasz interesującą Cię destynacje</h1>
+
+<?php
+$con= mysqli_connect ("localhost","root","","lotnisko");
+
+$max_words = 1; 
+$max_length = 20; 
+
+// Konfiguracja 
+
+if ( !isset($_POST['submit']) )
+{
+	$body = '
+	<form action="oferta.php" method="post">
+	Wpisz nazwę Państwa do którego chcesz lecieć: <span style="color: Red; font-weight: bold; font-color: Black">*</span>
+	<input type="post" name="fraza" class="form-control" style="width: 200px;" maxlength="'.$max_length.'"><br>
+	<input type = "submit" name="submit" value="Szukaj" class="btn btn-success .btn-lg" />
+	</form><br><br>';
+	
+	
+	echo $body;
+}
+else
+{
+	$search_words = trim($_POST['fraza']);
+	$search_words = mysqli_real_escape_string($con,$search_words);
+	$count_words = substr_count($search_words, ' ');
+	
+	if ( ($count_words + 1) > ($max_words) )
+	{
+		echo "Użyłeś za wiele słów";
+		exit;
+	}
+	
+	$search_words = str_replace("*", "%", $search_words);
+	echo "Szukana fraza: ".$search_words."<br>";
+    
+	$result = mysqli_query($con,"SELECT * FROM `miejsce` WHERE panstwo LIKE '".$search_words."'")
+		or die('Błąd w wyszukiwaniu lotów! Wybierz lotnisko z listy podanej poniżej');
+	$num = mysqli_num_rows($result);
+	if ($num == 0)
+	{
+		echo "Nie znaleziono pasujących.";
+		exit;
+	}
+	else
+	{
+// $kup1 = '<a href="kup.php?nr_lotu=';
+// $kup2a= '" type="submit" class="buy"> Zarezerwuj bilet klasa 1 </a>';
+// $kup2b= '" type="submit" class="buy"> Zarezerwuj bilet klasa 2 </a>';
+// $kup2c= '" type="submit" class="buy"> Zarezerwuj bilet klasa 3 </a>';
+
+//ABY UMOWZLIWIC KUPIENIE UTWORZ ZMIENNA. DODAJ DO NIEJ a do ktorego przypiszesz plik kup.php i umozliw zakup biletu.
+
+if ($result->num_rows > 0) {
+    
+    while($row = $result->fetch_assoc()) {
+            // echo "Jesteś w pętli"  "id: ".$row["id"].;
+
+     
+        echo "<b>Miejsce docelowe</b>: ".$row["panstwo"]."<br>"."<b>Miasto</b>: ".$row["miasto"]."<br>"."<b>Państwo</b>: ".$row["lotnisko"]."<br>"."<b>Lotnisko - kod IATA</b>: ".$row["IATA"]."<br>";
+
+
+		// "<br> Klasa 1 cena:  ". $row["klasa_1"]." <br>Klasa 2 cena:  ". $row["klasa_2"]." <br> Klasa 3 cena:  ". $row["klasa_3"]." <br> ". 
+		// $kup1 . $row['id'] . '&klasa=1' . $kup2a. " " .
+		// $kup1 . $row['id'] . '&klasa=2' . $kup2b. " " .
+		// $kup1 . $row['id'] . '&klasa=3' . $kup2c . '<br>';
+   }
+} else {
+    echo "0 results";
+}
+
+	}
+}
+
+?>
+</aside>
+
     <section class = "oferta">
     <main>
             <div class="wstep">
@@ -104,3 +186,8 @@ if(!isset($_SESSION['zalogowany']))
 </div>
 </body>
 </html>
+
+
+<!-- 
+
+ -->
