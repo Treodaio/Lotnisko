@@ -24,22 +24,16 @@ if(!isset($_SESSION['zalogowany']))
     <h1>Twoje dane: </h1> 
     <?php
     echo '<button class = "logout"><a href = "logout.php">Wyloguj się</a></button>';
-    echo "<p>Imię: ".$_SESSION['imie']."</p>";
+    echo '<p class = "info">Imię: '.$_SESSION["imie"].'</p>';
     echo "<p>ID: ".$_SESSION['id']."</p>";
-    echo "<p>Nazwisko: ".$_SESSION['nazwisko']."</p>";
+    echo '<p class = "info">Nazwisko: '.$_SESSION['nazwisko'].'</p>';
     echo "<p>Kraj: ".$_SESSION['kraj']."</p>";
-    echo "<p>Nr paszportu : ".$_SESSION['paszport']."</p>";
+    echo '<p class = "info">Nr paszportu : '.$_SESSION['paszport'].'</p>';
     echo "<p>Nr dowodu: ".$_SESSION['dowod']."</p>";
-    echo "<p>Login: ".$_SESSION['login']."</p>";
+    echo '<p class = "info">Login: '.$_SESSION['login'].'</p>';
     echo "<p>E-mail: ".$_SESSION['email']."</p>";
     ?>
     </aside>
-    <section class = "bilet">
-        <h1>Moje konto - posiadane bilety</h1>
-        <!-- M O J E K O N T O    -->
-</section>
-
-
 <aside class = "search">
 <h1>Tutaj wyszukasz interesującą Cię destynacje</h1>
 
@@ -49,15 +43,15 @@ $con= mysqli_connect ("localhost","root","","lotnisko");
 $max_words = 1; 
 $max_length = 20; 
 
-// Konfiguracja 
+// PHP - Wyszukiwarka.
 
 if ( !isset($_POST['submit']) )
 {
 	$body = '
 	<form action="oferta.php" method="post">
-	Wpisz nazwę Państwa do którego chcesz lecieć: <span style="color: Red; font-weight: bold; font-color: Black">*</span>
-	<input type="post" name="fraza" class="form-control" style="width: 200px;" maxlength="'.$max_length.'"><br>
-	<input type = "submit" name="submit" value="Szukaj" class="btn btn-success .btn-lg" />
+	Wpisz nazwę Państwa do którego chcesz lecieć: <span font-color: Black"></span>
+	<input type="post" name="fraza" class="form-control" style="width: 100px;" maxlength="'.$max_length.'"><br>
+	<input type = "submit" name="submit" value="Szukaj połączeń" class="przycisklotu"/>
 	</form><br><br>';
 	
 	
@@ -76,10 +70,17 @@ else
 	}
 	
 	$search_words = str_replace("*", "%", $search_words);
-	echo "Szukana fraza: ".$search_words."<br>";
+	echo '<h4 id = "bilet-info">Szukana fraza: '.$search_words.'<br>';
     
+
+
+
 	$result = mysqli_query($con,"SELECT * FROM `miejsce` WHERE panstwo LIKE '".$search_words."'")
-		or die('Błąd w wyszukiwaniu lotów! Wybierz lotnisko z listy podanej poniżej');
+        or die('Błąd w wyszukiwaniu! Prosimy spróbuj później');
+        
+     $result2 = mysqli_query($con, "SELECT * FROM `podroze` WHERE nazwa_podrozy LIKE '%".$search_words."%'");
+    
+     $kup1 = '<a href="oferta.php?nr_lotu=';
 	$num = mysqli_num_rows($result);
 	if ($num == 0)
 	{
@@ -88,37 +89,106 @@ else
 	}
 	else
 	{
-// $kup1 = '<a href="kup.php?nr_lotu=';
-// $kup2a= '" type="submit" class="buy"> Zarezerwuj bilet klasa 1 </a>';
-// $kup2b= '" type="submit" class="buy"> Zarezerwuj bilet klasa 2 </a>';
-// $kup2c= '" type="submit" class="buy"> Zarezerwuj bilet klasa 3 </a>';
-
-//ABY UMOWZLIWIC KUPIENIE UTWORZ ZMIENNA. DODAJ DO NIEJ a do ktorego przypiszesz plik kup.php i umozliw zakup biletu.
-
+ //Tu był komentarz 1
 if ($result->num_rows > 0) {
+
+    while( $row = $result->fetch_assoc())
+    {
+  echo '<h4 id = "bilet-info"><b>Miejsce docelowe</b>: '.$row["panstwo"]."<br>"."<b>Miasto</b>: ".$row["miasto"]."<br>"."<b>Państwo</b>: ".$row["lotnisko"]."<br>"."<b>Lotnisko - kod IATA</b>: ".$row["IATA"].'<br></br><br></br></h4>';
+    }
     
-    while($row = $result->fetch_assoc()) {
+    while($row2 = $result2->fetch_assoc()) {
             // echo "Jesteś w pętli"  "id: ".$row["id"].;
 
-     
-        echo "<b>Miejsce docelowe</b>: ".$row["panstwo"]."<br>"."<b>Miasto</b>: ".$row["miasto"]."<br>"."<b>Państwo</b>: ".$row["lotnisko"]."<br>"."<b>Lotnisko - kod IATA</b>: ".$row["IATA"]."<br>";
-
-
-		// "<br> Klasa 1 cena:  ". $row["klasa_1"]." <br>Klasa 2 cena:  ". $row["klasa_2"]." <br> Klasa 3 cena:  ". $row["klasa_3"]." <br> ". 
-		// $kup1 . $row['id'] . '&klasa=1' . $kup2a. " " .
-		// $kup1 . $row['id'] . '&klasa=2' . $kup2b. " " .
-		// $kup1 . $row['id'] . '&klasa=3' . $kup2c . '<br>';
+            echo '<div id = "kontener">'."<b>ID: </b>".$row2['id']."<b> Nazwa: </b>".$row2['nazwa_podrozy'].'<form action="oferta.php" method="post">
+                <button type="submit" name="kupiony" value='.$row2["id"].' class="kup">Kup</button></form>'."<br></br>".'</div>';
    }
+ 
+
+
 } else {
     echo "0 results";
 }
 
+
+
+// if ($wyszukanie_biletow->num_rows > 0) {
+    
+//     while($row3 = $wyszukanie_biletow->fetch_assoc()) {
+//      echo "Cena biletu : ".$row3['cena']."Klasa: ".$row3['klasa'];
+//     }
+ 
+ 
+//  } else {
+//      echo "Nie znaleziono biletów";
+//  }
+    mysqli_close($con);
 	}
 }
 
 ?>
-</aside>
 
+
+
+</aside>
+<section class = "bilet">
+        <h1>Moje ekscytujące podróże</h1>
+
+        <?php
+  $con= mysqli_connect ("localhost","root","","lotnisko");
+
+
+        if ((!isset($_POST['kupiony']))) {
+
+           echo "<h4 id = bilet-info>Jeszcze nie posiadasz żadnego biletu. Zapraszamy do zakupu<h4>";
+        } else {
+            $kupiony_bilet = $_POST['kupiony'];
+            $id_pasazera = $_SESSION['id'];
+
+            // Posiadasz już ten bilet? 
+            $masz = mysqli_query($con,'SELECT * FROM `podroze_has_pasazerowie` WHERE podroze_id = '.$kupiony_bilet.' AND pasazerowie_id = '.$id_pasazera.'');
+            
+            if($masz->num_rows > 0)
+            {
+                while($sprawdzam = $masz->fetch_assoc()) {
+                    if (($sprawdzam['podroze_id'] == $kupiony_bilet) && $id_pasazera == $sprawdzam['pasazerowie_id'])
+                    {
+                      echo "<h4 id = bilet-info>Posiadasz już ten bilet!<h4>";
+                      exit();
+                    }
+                }
+            }
+          
+
+            echo '<h4 id = bilet-info>Posiadasz bilet o id równym: '.$kupiony_bilet.'<h4>';
+            echo '<h4 id = bilet-info>Twoje id: '.$id_pasazera.'<h4>';
+
+            if (!$con) {
+                die("Oops! Houston jest problem!: " . mysqli_connect_error());
+              } 
+               else {
+
+                $sql = 'INSERT INTO `podroze_has_pasazerowie`(`podroze_id`, `pasazerowie_id`) VALUES ('.$kupiony_bilet.','.$id_pasazera.')';
+                
+                  if (mysqli_query($con, $sql)) {
+                  echo "Dziękujemy za zakup i życzymy udanej podróży :)";
+                  } else {
+                  echo "Błąd połączenia: " . $sql . "<br>" . mysqli_error($con);
+                  }
+  
+              }
+           
+
+
+                mysqli_close($con);
+        }
+     
+        ?> 
+        <!-- M O J E K O N T O    -->
+
+
+
+</section>
     <section class = "oferta">
     <main>
             <div class="wstep">
@@ -190,4 +260,5 @@ if ($result->num_rows > 0) {
 
 <!-- 
 
- -->
+
+-->

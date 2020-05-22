@@ -96,3 +96,24 @@ p {
     text-align: justify;
     line-height: 150%;
 }
+
+
+@media(max-width: 900px) {
+    .wrapper {
+        padding-top: 20vh;
+    }
+
+    .calculus {
+        top: 30%;
+    }
+}
+
+@media (max-width: 600px) {
+    .wrapper {
+        padding-top: 40vh;
+    }
+
+    aside {
+        display: none;
+    }
+}
