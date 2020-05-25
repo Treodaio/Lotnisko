@@ -13,9 +13,9 @@
     flex-direction: column;
 }
 
-nav {
+/* nav {
     max-height: 10vh;
-}
+} */
 
 
 main {
@@ -71,27 +71,23 @@ footer p {
 
 
 @media (max-width: 700px) {
-    nav {
-        flex-basis: 30%;
-        max-height: 30vh;
 
-    }
 
     .wrapper {
         padding-top: 30vh;
     }
 
-    ul {
-        flex-wrap: wrap;
+}
 
+@media(max-width: 620px) {
+    .wrapper {
+
+
+        padding-top: 40vh;
     }
 
-    li {
-        flex-grow: 0;
-        /* border: 2px solid red; */
-        flex-basis: 30%;
-        height: 50%;
+    main {
+        width: 100%;
     }
-
 
 }
