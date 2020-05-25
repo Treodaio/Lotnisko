@@ -26,6 +26,7 @@ main {
     height: 150%;
     width: 75%;
     border: 2px solid transparent;
+    border-radius: 16px;
     color: black;
     max-width: 900px;
 }
@@ -70,19 +71,19 @@ footer p {
 
 
 
-@media (max-width: 700px) {
-
+@media (max-width: 900px) {
 
     .wrapper {
         padding-top: 30vh;
     }
 
+    .main {
+        padding-top: 10vh;
+    }
 }
 
 @media(max-width: 620px) {
     .wrapper {
-
-
         padding-top: 40vh;
     }
 

@@ -29,7 +29,7 @@ main {
     transform: translate(-50%, -40%);
     display: flex;
     flex-direction: column;
-    max-width: 800px;
+    max-width: 600px;
 }
 
 h1 {
@@ -188,6 +188,8 @@ input[type="checkbox"] {
     border-radius: 16px;
 }
 
+
+
 #accept a {
     padding-left: 10px;
     color: #33e05e;
@@ -215,7 +217,7 @@ input[type="checkbox"] {
     transform: translate(-50%, -40%);
     display: flex;
     flex-direction: column;
-    max-width: 800px;
+    max-width: 630px;
     border: 2px solid white;
     justify-content: center;
 }

@@ -20,7 +20,7 @@ if(!isset($_SESSION['zalogowany']))
 <body>
    
 <div class="wrapper">
-    <aside>
+    <aside class = "main_information">
     <h1>Twoje dane: </h1> 
     <?php
     echo '<button class = "logout"><a href = "logout.php">Wyloguj się</a></button>';

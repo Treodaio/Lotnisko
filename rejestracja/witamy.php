@@ -44,7 +44,7 @@ if(isset($_SESSION['error'])) unset($_SESSION['error']);
         body {
             height: 100vh;
             width: 100vw;
-            background-image: url('compas.jpg');
+            background-image: url('img/compas.jpg');
             background-position: center;
             background-size: cover;
             position: relative;
