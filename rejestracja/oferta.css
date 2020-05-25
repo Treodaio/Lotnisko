@@ -6,8 +6,8 @@
 }
 
 .wrapper {
-    background-image: url("img/weather.png");
-    /* background-color: #24292e; */
+    /* background-image: url("img/weather.png"); */
+    background-color: #24292e;
     background-size: contain;
     min-height: 100vh;
     height: auto;
@@ -17,7 +17,7 @@
 }
 
 aside {
-    background-color: white;
+    background-color: lightgray;
     max-width: 1000px;
     margin: 10px;
     padding: 10px;
@@ -40,10 +40,10 @@ aside h1 {
     transform: translateX(-50%);
     position: absolute;
     top: 15%;
-    padding: 15px;
+    padding: 15px 40px;
     margin: 1%;
     color: white;
-    border: 2px solid #33e05e;
+    border: 2px solid black;
     border-radius: 16px;
     background-color: white;
     transition: .3s;
@@ -51,14 +51,17 @@ aside h1 {
 }
 
 .logout a {
-    color: #33e05e;
+    /* color: #33e05e; */
+    color: black;
     text-decoration: none;
     font-size: 1rem;
     transition: .3s;
 }
 
 .logout:hover {
-    background-color: #33e05e;
+    background-color: black;
+    color: white;
+
 }
 
 .logout:hover a {
@@ -73,7 +76,11 @@ aside p {
 }
 
 .bilet {
-    background-color: white;
+    background-color: lightgray;
+    /* EKSPERYMENTALNIE  */
+    background-image: url(../img/samolot_strona_glowna_1.jpg);
+    background-position: right bottom;
+    /* EKSPERYMENTALNIE  */
     max-width: 1000px;
     align-self: center;
     border: 2px solid transparent;
@@ -91,7 +98,7 @@ aside p {
 
 /*  E L E M E N T Y   PHP    M A I N  */
 .info {
-    border: 2px solid #33e05e;
+    border: 2px dashed black;
     /* border: 2px solid #bcf2ff; */
 
 }
@@ -118,7 +125,7 @@ aside p {
 
 
 main {
-    background-color: white;
+    background-color: lightgray;
     border: 2px solid transparent;
     border-radius: 16px;
     margin: 0 auto;
@@ -164,7 +171,7 @@ div p {
 section img {
     width: 100%;
     height: 100%;
-    border: 2px solid white;
+    border: 2px solid lightgray;
     border-radius: 16px;
 }
 
@@ -198,6 +205,7 @@ section img {
 
 /* W Y S Z U K I W A R K A */
 .search {
+
     position: relative;
     max-width: 1000px;
     align-self: center;
@@ -217,9 +225,10 @@ section img {
     padding: 15px;
     margin-top: 1%;
     /* margin-left: calc(60% /2);
+    #33e05e
      */
-    color: #33e05e;
-    border: 2px solid #33e05e;
+    color: black;
+    border: 2px solid black;
     border-radius: 16px;
     background-color: white;
     transition: .3s;
@@ -227,7 +236,7 @@ section img {
 }
 
 .przycisklotu:hover {
-    background-color: #33e05e;
+    background-color: black;
     color: white;
 }
 
@@ -235,34 +244,37 @@ section img {
     /* top: 50%; */
     position: absolute;
     left: 75%;
-    transform: translateX(-50%);
+    transform: translateY(-100%);
     padding: 15px;
+    padding-left: 40px;
+    padding-right: 40px;
     margin-top: 1%;
-    color: #33e05e;
-    border: 2px solid #33e05e;
+    color: black;
+    border: 2px solid black;
     border-radius: 16px;
-    background-color: white;
+    background-color: lightgray;
     transition: .3s;
     cursor: pointer;
 
 }
 
 .kup:hover {
-    background-color: #33e05e;
+    background-color: black;
     color: white;
 }
 
 .form-control {
     margin-left: 2%;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
     border: 2px solid black;
     border-radius: 16px;
+    font-style: italic;
+    font-weight: bold;
+    /* text-align: center; */
 }
 
-/* z nieznanej mi jeszcze przyczyny przeglądarka nie widzi tego stylu */
-div .kontener {
-    background-color: green;
-}
 
 .search h1 {
     font-size: 180%;

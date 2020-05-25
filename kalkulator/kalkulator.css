@@ -24,7 +24,7 @@ aside {
     /* background-color: white; */
     background: linear-gradient(to top, blue, aqua);
     width: 320px;
-    height: 535px;
+    height: 485px;
     position: fixed;
     border: 2px solid #24292e;
     border-radius: 15px;
@@ -104,7 +104,7 @@ p {
     }
 
     .calculus {
-        top: 30%;
+        top: 25%;
     }
 }
 

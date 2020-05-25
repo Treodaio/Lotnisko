@@ -104,6 +104,7 @@ p:hover {
     padding: 10px;
     cursor: pointer;
     transition: .5s ease-out;
+    text-align: center;
 }
 
 .button span {
@@ -112,7 +113,7 @@ p:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, .6);
+    background-color: white;
     border: 8px solid white;
     border-radius: 50%;
     z-index: -1;

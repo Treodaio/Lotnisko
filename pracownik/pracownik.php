@@ -22,7 +22,7 @@
             <li><i class="far fa-images"></i><a href="../galeria/galeria.html">Galeria</a></li>
             <!-- <li><i class="fas fa-route"></i><a href="#">Podróż</a></li> -->
             <li><i class="fas fa-ticket-alt"></i><a href="../oferta/oferta.html">Oferta</a></li>
-            <li><i class="fas fa-user-friends"></i><a href="../pracownik/pracownik.html">Dla pracownika</a></li>
+            <li><i class="fas fa-user-friends"></i><a href="#">Dla pracownika</a></li>
             <li><i class="fas fa-calculator"></i><a href="../kalkulator/kalkulator.html">Kalkulator</a></li>
             <li><i class="far fa-clipboard"></i><a href="../regulamin/regulamin.html">Regulamin</a></li>
         </ul>

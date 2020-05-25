@@ -25,6 +25,7 @@ ul {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+
 }
 
 li {
@@ -35,6 +36,8 @@ li {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    /* border: 1px solid white; */
 }
 
 li i {
@@ -80,7 +83,7 @@ li:hover a {
 
 @media (max-width: 620px) {
     nav {
-        height: 40vh;
+        height: 30vh;
     }
 
     li {

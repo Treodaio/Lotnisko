@@ -192,7 +192,7 @@ if ((isset($_POST['imie'])))
             <li><i class="far fa-clipboard"></i><a href="../index.html">Strona główna</a></li>
             <li><i class="far fa-clipboard"></i><a href="#">Rejestracja</a></li>
             <li><i class="far fa-images"></i><a href="../galeria/galeria.html">Galeria</a></li>
-            <li><i class="fas fa-route"></i><a href="../podroz/podroz.html">Podróż</a></li>
+            <!-- <li><i class="fas fa-route"></i><a href="../podroz/podroz.html">Podróż</a></li> -->
             <li><i class="fas fa-ticket-alt"></i><a href="./oferta/oferta.html">Oferta</a></li>
             <li><i class="fas fa-user-friends"></i><a href="../pracownik/pracownik.html">Dla pracownika</a></li>
             <li><i class="fas fa-calculator"></i><a href="../kalkulator/kalkulator.html">Kalkulator</a></li>
@@ -248,14 +248,15 @@ if ((isset($_POST['imie'])))
         <aside>
             <h1>Zaloguj się na swoje konto</h1>
             <?php
+            error_reporting();
             if(isset($_SESSION['blad']))
             {
                 echo $_SESSION['blad'];
             }
             ?>
             <form action="zaloguj.php" method="POST">
-                <label id="username" for="username"><input type="text" name="login" placeholder="Login"></label>
-                <label id="password" for="password"><input type="password" name="haslo" placeholder="Hasło"></label>
+                <label id="username" class = "input_modal" for="username"><input type="text" name="login" placeholder="Login"></label>
+                <label id="password" class = "input_modal" for="password"><input type="password" name="haslo" placeholder="Hasło"></label>
                 <button>Zaloguj się</button>
 
                 <?php

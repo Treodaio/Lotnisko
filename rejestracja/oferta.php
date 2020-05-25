@@ -50,7 +50,7 @@ if ( !isset($_POST['submit']) )
 	$body = '
 	<form action="oferta.php" method="post">
 	Wpisz nazwę Państwa do którego chcesz lecieć: <span font-color: Black"></span>
-	<input type="post" name="fraza" class="form-control" style="width: 100px;" maxlength="'.$max_length.'"><br>
+	<input type="post" name="fraza" class="form-control" maxlength="'.$max_length.'"><br>
 	<input type = "submit" name="submit" value="Szukaj połączeń" class="przycisklotu"/>
 	</form><br><br>';
 	
@@ -110,18 +110,6 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-
-
-// if ($wyszukanie_biletow->num_rows > 0) {
-    
-//     while($row3 = $wyszukanie_biletow->fetch_assoc()) {
-//      echo "Cena biletu : ".$row3['cena']."Klasa: ".$row3['klasa'];
-//     }
- 
- 
-//  } else {
-//      echo "Nie znaleziono biletów";
-//  }
     mysqli_close($con);
 	}
 }
@@ -141,8 +129,6 @@ if ($result->num_rows > 0) {
 
   
   
-  
-  
     //Jeżeli ktoś nie zakupił jeszcze biletu. TO miejsce na historie
         if ((!isset($_POST['kupiony']))) {
 
@@ -150,10 +136,10 @@ if ($result->num_rows > 0) {
 
             if($historia->num_rows > 0)
             {
-                // echo  "Masz już jakiś bilet";
+                echo '<h4 class= "bilet-info">Posiadasz już :'; 
                 while($row4 = $historia->fetch_assoc())
                 {
-                    echo '<h4 class= "bilet-info">Posiadasz już : '.$row4['nazwa_podrozy'].'</h4>';
+                    echo '<h4 class= "bilet-info">'.$row4['nazwa_podrozy'].'</h4>';
                 }
             }else {
                 echo "<h4 id = bilet-info>Jeszcze nie posiadasz żadnego biletu. Zapraszamy do zakupu<h4>";
@@ -280,6 +266,8 @@ if ($result->num_rows > 0) {
 
 
 <!-- 
+    WYciągnij bilety do podróży
+SELECT * FROM bilety INNER JOIN podroze_has_bilety ON bilety.id = podroze_has_bilety.bilety_id AND podroze_has_bilety.podroze_id = 1
 
 
 -->
