@@ -94,7 +94,7 @@ if ($result->num_rows > 0) {
 
     while( $row = $result->fetch_assoc())
     {
-  echo '<h4 id = "bilet-info"><b>Miejsce docelowe</b>: '.$row["panstwo"]."<br>"."<b>Miasto</b>: ".$row["miasto"]."<br>"."<b>Państwo</b>: ".$row["lotnisko"]."<br>"."<b>Lotnisko - kod IATA</b>: ".$row["IATA"].'<br></br><br></br></h4>';
+  echo '<h4 class = "bilet-info"><b>Miejsce docelowe</b>: '.$row["panstwo"]."<br>"."<b>Miasto</b>: ".$row["miasto"]."<br>"."<b>Państwo</b>: ".$row["lotnisko"]."<br>"."<b>Lotnisko - kod IATA</b>: ".$row["IATA"].'<br></br><br></br></h4>';
     }
     
     while($row2 = $result2->fetch_assoc()) {
@@ -136,14 +136,35 @@ if ($result->num_rows > 0) {
 
         <?php
   $con= mysqli_connect ("localhost","root","","lotnisko");
+        
 
 
+  
+  
+  
+  
+    //Jeżeli ktoś nie zakupił jeszcze biletu. TO miejsce na historie
         if ((!isset($_POST['kupiony']))) {
 
-           echo "<h4 id = bilet-info>Jeszcze nie posiadasz żadnego biletu. Zapraszamy do zakupu<h4>";
+            $historia = mysqli_query($con, 'SELECT `podroze`.`nazwa_podrozy` FROM `podroze` INNER JOIN `podroze_has_pasazerowie` ON `podroze_has_pasazerowie`.`podroze_id` = podroze.id AND podroze_has_pasazerowie.pasazerowie_id = '.$_SESSION['id'].'' );
+
+            if($historia->num_rows > 0)
+            {
+                // echo  "Masz już jakiś bilet";
+                while($row4 = $historia->fetch_assoc())
+                {
+                    echo '<h4 class= "bilet-info">Posiadasz już : '.$row4['nazwa_podrozy'].'</h4>';
+                }
+            }else {
+                echo "<h4 id = bilet-info>Jeszcze nie posiadasz żadnego biletu. Zapraszamy do zakupu<h4>";
+            }   
+
+
+           //OBSŁUGA ZAKUPU BILETU
         } else {
-            $kupiony_bilet = $_POST['kupiony'];
             $id_pasazera = $_SESSION['id'];
+            $kupiony_bilet = $_POST['kupiony'];
+            // $id_pasazera = $_SESSION['id'];
 
             // Posiadasz już ten bilet? 
             $masz = mysqli_query($con,'SELECT * FROM `podroze_has_pasazerowie` WHERE podroze_id = '.$kupiony_bilet.' AND pasazerowie_id = '.$id_pasazera.'');

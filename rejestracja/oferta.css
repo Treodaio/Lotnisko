@@ -92,16 +92,17 @@ aside p {
 /*  E L E M E N T Y   PHP    M A I N  */
 .info {
     border: 2px solid #33e05e;
+    /* border: 2px solid #bcf2ff; */
 
 }
 
 
-#bilet-info {
+.bilet-info {
     padding: 20px;
     text-align: center;
 }
 
-#bilet-info b {
+.bilet-info b {
     color: #33e05e;
 }
 
