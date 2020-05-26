@@ -166,7 +166,7 @@ if ($result->num_rows > 0) {
                 }
             }
           
-
+            
             echo '<h4 id = bilet-info>Posiadasz bilet o id równym: '.$kupiony_bilet.'<h4>';
             echo '<h4 id = bilet-info>Twoje id: '.$id_pasazera.'<h4>';
 

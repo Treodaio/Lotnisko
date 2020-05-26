@@ -14,14 +14,11 @@
 /* #24292e- kolor nagłówka */
 /* #242734 - kolor inspiracji */
 .gallery {
-    border: 2px solid white;
     font-family: 'Roboto', 'sans-serif';
     background-color: black;
     color: white;
     width: 99%;
     height: 80%;
-    /* border: 2px solid transparent; */
-    /* border-radius: 20px; */
     position: absolute;
     top: 40%;
     left: 50%;
@@ -33,7 +30,6 @@
 
 .gallery .title {
     flex-basis: 25%;
-    /* border: 2px solid red; */
     position: relative;
 }
 
@@ -47,13 +43,12 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 3rem;
-    /* border: 2px solid white; */
 }
 
 .gallery .images {
-
+    margin: 0 auto;
+    max-width: 1200px;
     flex-basis: 85%;
-    /* border: 2px solid green; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -61,19 +56,23 @@
 }
 
 .images a {
-    margin: 4% 2%;
-    flex-basis: 20%;
-
+    cursor: default;
+    flex-basis: 25%;
     height: 25%;
-    border: 2px solid white;
-    border-radius: 12px;
 }
 
+
 .images img {
+    flex-grow: 1;
     width: 100%;
     height: 100%;
     border: 3px solid transparent;
-    border-radius: 12px;
+    border-radius: 20px;
+    transition: .5s;
+}
+
+.images a:hover img {
+    transform: scale(1.3);
 }
 
 p {
