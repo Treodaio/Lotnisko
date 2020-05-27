@@ -129,6 +129,11 @@ aside p {
     color: #33e05e;
 }
 
+h4 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
 /* O F E R T A */
 .oferta {
     color: black;
@@ -264,7 +269,7 @@ section img {
     /* top: 50%; */
     position: absolute;
     left: 75%;
-    transform: translateY(-100%);
+    transform: translateY(-200%);
     padding: 15px;
     padding-left: 40px;
     padding-right: 40px;

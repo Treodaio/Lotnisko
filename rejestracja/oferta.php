@@ -78,9 +78,16 @@ else
 	$result = mysqli_query($con,"SELECT * FROM `miejsce` WHERE panstwo LIKE '".$search_words."'")
         or die('Błąd w wyszukiwaniu! Prosimy spróbuj później');
         
-     $result2 = mysqli_query($con, "SELECT * FROM `podroze` WHERE nazwa_podrozy LIKE '%".$search_words."%'");
+    //  $result2 = mysqli_query($con, "SELECT * FROM `podroze` WHERE nazwa_podrozy LIKE '%".$search_words."%'");
+
+
+
+    $result2 = mysqli_query($con, "SELECT podroze.id, nazwa_podrozy, cena, klasa, panstwo, lotnisko, miasto FROM podroze INNER JOIN podroze_has_bilety ON podroze_has_bilety.podroze_id = podroze.id INNER JOIN bilety ON bilety.id = podroze_has_bilety.bilety_id INNER JOIN miejsce ON miejsce.id = bilety.miejsce_przylotu WHERE nazwa_podrozy LIKE '%".$search_words."%'");
     
-     $kup1 = '<a href="oferta.php?nr_lotu=';
+
+
+
+    //  $kup1 = '<a href="oferta.php?nr_lotu=';
 	$num = mysqli_num_rows($result);
 	if ($num == 0)
 	{
@@ -97,13 +104,16 @@ if ($result->num_rows > 0) {
   echo '<h4 class = "bilet-info"><b>Miejsce docelowe</b>: '.$row["panstwo"]."<br>"."<b>Miasto</b>: ".$row["miasto"]."<br>"."<b>Państwo</b>: ".$row["lotnisko"]."<br>"."<b>Lotnisko - kod IATA</b>: ".$row["IATA"].'<br></br><br></br></h4>';
     }
     
-    while($row2 = $result2->fetch_assoc()) {
-            // echo "Jesteś w pętli"  "id: ".$row["id"].;
+//     while($row2 = $result2->fetch_assoc()) {
+//             echo '<div id = "kontener">'."<b>ID: </b>".$row2['id']."<b> Nazwa: </b>".$row2['nazwa_podrozy'].'<form action="oferta.php" method="post">
+//                 <button type="submit" name="kupiony" value='.$row2["id"].' class="kup">Kup</button></form>'."<br></br>".'</div>';
+//    }
+    
 
-            echo '<div id = "kontener">'."<b>ID: </b>".$row2['id']."<b> Nazwa: </b>".$row2['nazwa_podrozy'].'<form action="oferta.php" method="post">
-                <button type="submit" name="kupiony" value='.$row2["id"].' class="kup">Kup</button></form>'."<br></br>".'</div>';
-   }
- 
+while($row2 = $result2->fetch_assoc()) {
+    echo '<div id = "kontener">'."<b>Nazwa podróży: </b>".$row2['nazwa_podrozy']."<b> Cena: </b>".$row2['cena']."<b> Klasa: </b>".$row2['klasa']."<b>Miasto docelowe: </b>".$row2['miasto'].'<form action="oferta.php" method="post">
+    <button type="submit" name="kupiony" value='.$row2["id"].' class="kup">Kup</button></form>'."<br></br>".'</div>';
+}
 
 
 } else {
