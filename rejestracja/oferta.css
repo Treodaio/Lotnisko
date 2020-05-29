@@ -92,7 +92,7 @@ aside p {
 .bilet {
     background-color: lightgray;
     /* EKSPERYMENTALNIE  */
-    background-image: url(../img/samolot_strona_glowna_1.jpg);
+    background-image: url(img/compas.jpg);
     background-attachment: fixed;
     background-size: cover;
     background-position: right bottom;
@@ -106,6 +106,21 @@ aside p {
     margin: 4% 0;
 }
 
+.colour {
+    color: black;
+}
+
+
+.kontener2 {
+    border-bottom: 2px solid white;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* .kontener2:nth-child(even) {działa ale nie jest konieczne} */
+
 
 .bilet h1 {
     text-align: center;
@@ -116,7 +131,11 @@ aside p {
 .info {
     border-bottom: 2px solid rgb(119, 207, 236);
     /* border: 2px solid #bcf2ff; */
+    filter: blur(4px);
+}
 
+.info:hover {
+    filter: blur(0px);
 }
 
 
@@ -225,8 +244,12 @@ section img {
 
 
 
-
-
+b.extended {
+    /* border: 2px solid white; */
+    color: white;
+    margin-left: 10px;
+    margin-right: 5px;
+}
 
 
 /* W Y S Z U K I W A R K A */
