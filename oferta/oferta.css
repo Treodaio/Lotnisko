@@ -13,7 +13,9 @@
     padding-top: 10vh;
     min-height: 100vh;
     height: auto;
-    background-image: url('funky-lines.png');
+    background-image: url('../rejestracja/img/tapetka.jpg');
+    background-position: center;
+    background-size: contain;
     color: black;
 }
 

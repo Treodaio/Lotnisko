@@ -20,7 +20,7 @@ main {
     background-color: #24292e;
     color: white;
     width: 70%;
-    height: 70%;
+    height: 60%;
     border: 2px solid transparent;
     border-radius: 20px;
     position: absolute;
@@ -29,7 +29,7 @@ main {
     transform: translate(-50%, -40%);
     display: flex;
     flex-direction: column;
-    max-width: 600px;
+    max-width: 700px;
 }
 
 h1 {
@@ -295,6 +295,7 @@ input[type="checkbox"] {
     }
 
     main {
+        width: 95%;
         top: 42%;
     }
 
@@ -304,8 +305,8 @@ input[type="checkbox"] {
 @media (max-width: 620px) {
 
     main {
-        width: 90%;
-        top: 55%;
+        width: 99%;
+        top: 45%;
     }
 
     main h1 {

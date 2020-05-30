@@ -15,6 +15,7 @@ let userPassword;
 let min;
 let max;
 
+
 //gdzie trzeba sprawdzic długość łańcucha tam podpinamy lengthCorrect. Gdzie potrzebne są dodatkowe warunki tam w pierwszej funkcji podpiętej pod inputa sprawdzamy dodatkowe warunki.
 
 

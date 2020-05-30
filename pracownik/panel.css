@@ -6,21 +6,24 @@
 }
 
 .wrapper {
-    height: 130vh;
+    height: auto;
     padding-top: 10vh;
     background-image: url(clouds.jpg);
+    background-position: center;
+    /* background-repeat: repeat; */
+    background-size: cover;
     /* background: linear-gradient(to top, blue, rgb(47, 219, 219)); */
     position: relative;
     display: flex;
     flex-direction: column;
     color: white;
+    font-family: 'Roboto', 'sans-serif';
 }
 
 
 
 main {
     background-color: #24292e;
-    font-family: 'Roboto', 'sans-serif';
     /* color: white; */
     width: 75%;
     height: auto;
@@ -50,6 +53,23 @@ aside h1 {
 }
 
 /* ELEMENTY PHP  */
+
+.container {
+    text-align: center;
+    border: 2px solid white;
+    margin-bottom: 20px;
+    border-radius: 30px;
+}
+
+aside>.container p {
+    border: none;
+}
+
+.container p:nth-last-child(1) {
+    padding-top: 10px;
+    border-bottom: none;
+}
+
 h3 {
     font-style: italic;
     text-transform: uppercase;
@@ -59,10 +79,12 @@ h3 {
 }
 
 .bilet-info {
+    text-align: center;
     margin-bottom: 10px;
     border-radius: 30px;
-    border: 2px solid lightgreen;
-    font-size: 16px;
+    border: 2px solid #33e05e;
+    font-size: 20px;
+    font-weight: bold;
     padding: 20px;
 }
 
@@ -90,6 +112,9 @@ span {
     transition: .3s;
     cursor: pointer;
 }
+
+
+
 
 .logout a {
     color: #33e05e;
