@@ -83,7 +83,6 @@ p {
     line-height: 170%;
     font-style: oblique;
     font-family: 'Noto Serif', serif;
-    /* border: 2px solid red; */
     padding: 10%;
     align-self: flex-end;
     font-size: 1.5rem;
@@ -108,7 +107,5 @@ p {
 }
 
 @media(max-width: 500px) {
-    .gallery .title h1 {
-        /* font-size: 2rem; */
-    }
+    .gallery .title h1 {}
 }

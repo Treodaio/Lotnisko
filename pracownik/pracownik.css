@@ -30,7 +30,6 @@ h1 {
     color: #aab1be;
     padding-top: 20%;
     flex-basis: 30%;
-    /* border: 2px solid yellow; */
     font-size: 25px;
     text-align: center;
 
@@ -38,8 +37,6 @@ h1 {
 
 form {
     flex-basis: 70%;
-    /* border: 2px solid green; */
-    /*  ///////////////////// */
     display: flex;
     flex-direction: column;
 }
@@ -69,7 +66,6 @@ label {
 
 label input {
     font-size: 1.5em;
-    /* margin-left: 5%; */
     background-color: rgba(69, 79, 88, 0.6);
     color: #aab1be;
     margin-left: 2.5%;
@@ -108,10 +104,8 @@ p {
     font-family: 'Roboto', 'sans-serif';
     font-size: 1.2rem;
     width: 100%;
-    /* margin-left: 5%; */
     text-align: center;
     flex-basis: 15%;
-    /* border: 2px solid red; */
 }
 
 @media (max-width: 600px) {

@@ -78,8 +78,6 @@ else
 	$result = mysqli_query($con,"SELECT * FROM `miejsce` WHERE panstwo LIKE '".$search_words."'")
         or die('Błąd w wyszukiwaniu! Prosimy spróbuj później');
         
-    //  $result2 = mysqli_query($con, "SELECT * FROM `podroze` WHERE nazwa_podrozy LIKE '%".$search_words."%'");
-
 
 
     $result2 = mysqli_query($con, "SELECT bilety.id, nazwa_podrozy, cena, klasa, panstwo, lotnisko, miasto FROM podroze INNER JOIN podroze_has_bilety ON podroze_has_bilety.podroze_id = podroze.id INNER JOIN bilety ON bilety.id = podroze_has_bilety.bilety_id INNER JOIN miejsce ON miejsce.id = bilety.miejsce_przylotu WHERE nazwa_podrozy LIKE '%".$search_words."%'");
@@ -87,7 +85,6 @@ else
 
 
 
-    //  $kup1 = '<a href="oferta.php?nr_lotu=';
 	$num = mysqli_num_rows($result);
 	if ($num == 0)
 	{
@@ -96,19 +93,13 @@ else
 	}
 	else
 	{
- //Tu był komentarz 1
 if ($result->num_rows > 0) {
 
     while( $row = $result->fetch_assoc())
     {
   echo '<h4 class = "bilet-info"><b>Miejsce docelowe</b>: '.$row["panstwo"]."<br>"."<b>Miasto</b>: ".$row["miasto"]."<br>"."<b>Państwo</b>: ".$row["lotnisko"]."<br>"."<b>Lotnisko - kod IATA</b>: ".$row["IATA"].'<br></br><br></br></h4>';
     }
-    
-//     while($row2 = $result2->fetch_assoc()) {
-//             echo '<div id = "kontener">'."<b>ID: </b>".$row2['id']."<b> Nazwa: </b>".$row2['nazwa_podrozy'].'<form action="oferta.php" method="post">
-//                 <button type="submit" name="kupiony" value='.$row2["id"].' class="kup">Kup</button></form>'."<br></br>".'</div>';
-//    }
-    
+
 
 while($row2 = $result2->fetch_assoc()) {
     echo '<div id = "kontener">'."<b>Nazwa podróży: </b>".$row2['nazwa_podrozy']."<b> Cena: </b>".$row2['cena']."zł"."<b> Klasa: </b>".$row2['klasa']."<b>Miasto docelowe: </b>".$row2['miasto'].'<form action="oferta.php" method="post">
@@ -162,7 +153,6 @@ while($row2 = $result2->fetch_assoc()) {
         } else {
             $id_pasazera = $_SESSION['id'];
             $kupiony_bilet = $_POST['kupiony'];
-            // $id_pasazera = $_SESSION['id'];
 
             // Posiadasz już ten bilet? 
             $masz = mysqli_query($con,'SELECT * FROM `pasazerowie_has_bilety` WHERE bilety_id = '.$kupiony_bilet.' AND pasazerowie_id = '.$id_pasazera.'');
@@ -188,9 +178,9 @@ while($row2 = $result2->fetch_assoc()) {
                else {
 
                 $sql = 'INSERT INTO `pasazerowie_has_bilety`(`pasazerowie_id`, `bilety_id`) VALUES ('.$id_pasazera.','.$kupiony_bilet.')';
-                // $sql = 
+                
                   if (mysqli_query($con, $sql)) {
-                //   echo "Dziękujemy za zakup i życzymy udanej podróży :)";
+               
                   echo "<script>alert('Dziękujemy za zakup biletu!')</script>";
                   } else {
                   echo "Błąd połączenia: " . $sql . "<br>" . mysqli_error($con);
@@ -276,9 +266,3 @@ while($row2 = $result2->fetch_assoc()) {
 </div>
 </body>
 </html>
-
-
-<!-- 
-    WYciągnij bilety do podróży
-SELECT * FROM bilety INNER JOIN podroze_has_bilety ON bilety.id = podroze_has_bilety.bilety_id AND podroze_has_bilety.podroze_id = 1
--->

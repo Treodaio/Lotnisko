@@ -58,7 +58,6 @@ if(isset($_SESSION['error'])) unset($_SESSION['error']);
             left: 50%;
             transform: translate(-50%, -50%);
             position: absolute;
-            /* border: 2px solid red; */
         }
 
         h1 a {

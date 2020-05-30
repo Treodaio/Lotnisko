@@ -163,8 +163,7 @@ if ((isset($_POST['imie'])))
         }
         catch(Exception $e)
         {
-            // echo '<h1 id = "uniqie">Błąd serwera! Przepraszamy za niedogodności i prosimy o rejestrację w innym terminie!</h1>';
-            // echo '<p>Informacja deweloperska</p>'.$e;
+          
         }
 
 }
@@ -192,7 +191,6 @@ if ((isset($_POST['imie'])))
             <li><i class="far fa-clipboard"></i><a href="../index.html">Strona główna</a></li>
             <li><i class="far fa-clipboard"></i><a href="#">Rejestracja</a></li>
             <li><i class="far fa-images"></i><a href="../galeria/galeria.html">Galeria</a></li>
-            <!-- <li><i class="fas fa-route"></i><a href="../podroz/podroz.html">Podróż</a></li> -->
             <li><i class="fas fa-ticket-alt"></i><a href="./oferta/oferta.html">Oferta</a></li>
             <li><i class="fas fa-user-friends"></i><a href="../pracownik/pracownik.php">Dla pracownika</a></li>
             <li><i class="fas fa-calculator"></i><a href="../kalkulator/kalkulator.html">Kalkulator</a></li>
