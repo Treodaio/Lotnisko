@@ -25,16 +25,30 @@ if(!isset($_SESSION['zalogowany']))
     echo "<p>Imię: ".$_SESSION['imie']."</p>";
     echo "<p>ID: ".$_SESSION['id']."</p>";
     echo "<p>Nazwisko: ".$_SESSION['nazwisko']."</p>";
-    echo "<p>Czas pracy: ".$_SESSION['czas_pracy']."</p>";
     ?>
     </main>
     <aside>
-    <h1>Pasażerowie którzy niedlugo odbędą podróże</h1>
-
     <?php
  $con= mysqli_connect ("localhost","root","","lotnisko");
   
+ echo '<h3>Czas pracy:</h3>'; 
 
+ // Czas pracy
+ $czas_pracy  = mysqli_query($con, 'SELECT czas_pracy_od, czas_pracy_do FROM ochrona WHERE id = '.$_SESSION['id'].'' );
+
+ if($czas_pracy->num_rows > 0)
+ {
+
+     while($row = $czas_pracy->fetch_assoc())
+     {
+         echo "<div class = 'container'><p>Czas pracy od : ".$row['czas_pracy_od']."</p>"."<p>Czas pracy do: </b>".$row['czas_pracy_do']."<br></br></div>";   
+     }
+ }else {
+     echo "<h4 id = bilet-info>Nie ma nic do wyświetlenia. Wolne? <h4>";
+ } 
+
+
+// Lista pasażerów
          $lista = mysqli_query($con, 'SELECT imie, nazwisko, kraj_pochodzenia, nr_paszportu FROM `pasazerowie`');
 
          if($lista->num_rows > 0)
