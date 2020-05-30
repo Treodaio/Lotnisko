@@ -28,7 +28,7 @@ if(!isset($_SESSION['zalogowany']))
     echo "<p>Czas pracy: ".$_SESSION['czas_pracy']."</p>";
     ?>
     </main>
-    <aside>
+  
     <aside>
     <h1>Pasażerowie którzy niedlugo odbędą podróże</h1>
 
@@ -51,7 +51,6 @@ if(!isset($_SESSION['zalogowany']))
          $con->close();
      
     ?>
-    </aside>
     </aside>
 </body>
 </html>

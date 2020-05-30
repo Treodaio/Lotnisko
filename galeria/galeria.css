@@ -59,10 +59,13 @@
     cursor: default;
     flex-basis: 25%;
     height: 25%;
+
 }
 
 
 .images img {
+
+    filter: grayscale(100%);
     flex-grow: 1;
     width: 100%;
     height: 100%;
@@ -73,6 +76,7 @@
 
 .images a:hover img {
     transform: scale(1.3);
+    filter: grayscale(0%);
 }
 
 p {

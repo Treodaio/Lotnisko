@@ -231,8 +231,8 @@ if ((isset($_POST['imie'])))
 
                 <label id="email" for="email"><input type="text" value = "<?php if(isset($_SESSION['fr_email'])) { echo $_SESSION['fr_email']; unset($_SESSION['fr_email']);  }?>" name="email" placeholder="Email"></label>
                 <label id="login" for="login"><input type="text" value = "<?php if(isset($_SESSION['fr_login'])) { echo $_SESSION['fr_login']; unset($_SESSION['fr_login']);  }?>" name="login" placeholder="Login"></label>
-                <label id="haslo" for="haslo"><input type="text"  name="haslo" placeholder="Hasło"></label>
-                <label id="haslo_2" for="haslo"><input type="text" name="haslo2" placeholder="Powtórz hasło"></label>
+                <label id="haslo" for="haslo"><input type="password"  name="haslo" placeholder="Hasło"></label>
+                <label id="haslo_2" for="haslo"><input type="password" name="haslo2" placeholder="Powtórz hasło"></label>
                 <div id="accept">
                    <input type="checkbox" name="checkbox" value = "">Akceptuję
                         <a href="../regulamin/regulamin.html">regulamin</a>

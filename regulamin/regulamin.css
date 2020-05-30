@@ -8,7 +8,8 @@
 
 .wrapper {
     padding-top: 10vh;
-    background: linear-gradient(to top, aqua, blue);
+    /* background: linear-gradient(to top, aqua, blue); */
+    background-color: #24292e;
     display: flex;
     flex-direction: column;
 }
@@ -24,7 +25,7 @@ main {
     background-color: white;
     align-self: center;
     height: 150%;
-    width: 75%;
+    width: 100%;
     border: 2px solid transparent;
     border-radius: 16px;
     color: black;
