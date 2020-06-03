@@ -33,7 +33,7 @@ aside {
     width: 80%;
     flex-basis: 20%;
     border: 2px solid transparent;
-    border-radius: 10px;
+    border-radius: 4px;
     position: relative;
 }
 
@@ -91,7 +91,7 @@ aside p {
     max-width: 1000px;
     align-self: center;
     border: 2px solid transparent;
-    border-radius: 16px;
+    border-radius: 4px;
     width: 80%;
     flex-basis: 40%;
     margin: 4% 0;
@@ -106,6 +106,8 @@ aside p {
     border-bottom: 2px solid white;
     text-align: center;
     color: white;
+    /* color: black; */
+    font-weight: bold;
     font-size: 20px;
     margin-bottom: 20px;
 }
@@ -113,6 +115,8 @@ aside p {
 
 
 .bilet h1 {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: black;
     text-align: center;
     font-size: 180%;
 }
@@ -159,7 +163,7 @@ main {
     background-attachment: fixed;
     background-size: contain;
     border: 2px solid transparent;
-    border-radius: 16px;
+    border-radius: 4px;
     margin: 0 auto;
     max-width: 1000px;
     font-family: 'Roboto', sans-serif;
@@ -236,15 +240,25 @@ b.extended {
     max-width: 1000px;
     align-self: center;
     border: 2px solid transparent;
-    border-radius: 16px;
+    border-radius: 4px;
     width: 80%;
     flex-basis: 40%;
     margin: 4% 0;
     padding-bottom: 40px;
 }
 
+.search form {
+    display: flex;
+}
+
+.moje_p {
+    border-bottom: 0px solid transparent;
+    align-self: flex-start;
+}
+
 .przycisklotu {
     position: absolute;
+    top: 75%;
     left: 50%;
     transform: translateX(-50%);
     padding: 15px;
@@ -285,7 +299,11 @@ b.extended {
     color: white;
 }
 
+
+
 .form-control {
+    margin: 0 auto;
+    width: 80%;
     margin-left: 2%;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -315,6 +333,6 @@ b.extended {
 
 @media(min-width: 850px) {
     .logout {
-        top: 12%;
+        top: 15%;
     }
 }

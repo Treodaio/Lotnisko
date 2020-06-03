@@ -40,20 +40,28 @@ if(!isset($_SESSION['zalogowany']))
 <?php
 $con= mysqli_connect ("localhost","root","","lotnisko");
 
-$max_words = 1; 
+$max_words = 2; 
 $max_length = 20; 
 
 // PHP - Wyszukiwarka.
 
-if ( !isset($_POST['submit']) )
+if (!isset($_POST['submit']))
 {
 	$body = '
 	<form action="oferta.php" method="post">
-	Wpisz nazwę Państwa do którego chcesz lecieć: <span font-color: Black"></span>
+	<div class = "miasto_poczatkowe">
+    <p class = "moje_p">Wpisz miasto początkowe:</p> <span font-color: Black"></span>
+    <input type="post" name="fraza2" class="form-control" maxlength="'.$max_length.'"><br>
+    </div>
+
+    <div class = "miasto_poczatkowe">
+    <p class = "moje_p">Wpisz miasto docelowe:</p> <span font-color: Black"></span>
 	<input type="post" name="fraza" class="form-control" maxlength="'.$max_length.'"><br>
+    </div>
+
 	<input type = "submit" name="submit" value="Szukaj połączeń" class="przycisklotu"/>
 	</form><br><br>';
-	
+
 	
 	echo $body;
 }
@@ -70,17 +78,29 @@ else
 	}
 	
 	$search_words = str_replace("*", "%", $search_words);
-	echo '<h4 id = "bilet-info">Szukana fraza: '.$search_words.'<br>';
+	echo '<h4 id = "bilet-info">Miasto końcowe: '.$search_words.'<br>';
     
+            //2  Słowo kluczowe
+        $search_words2 = trim($_POST['fraza2']);
+        $search_words2 = mysqli_real_escape_string($con,$search_words2);
+        $count_words2 = substr_count($search_words2, ' ');
+        
+        if ( ($count_words2 + 1) > ($max_words) )
+	{
+		echo "Użyłeś za wiele słów";
+		exit;
+	}
+        
+        
+        $search_words2 = str_replace("*", "%", $search_words2);
+        echo '<h4 id = "bilet-info">Miasto początkowe: '.$search_words2.'<br>';
 
-
-
-	$result = mysqli_query($con,"SELECT * FROM `miejsce` WHERE panstwo LIKE '".$search_words."'")
+	$result = mysqli_query($con,"SELECT * FROM `miejsce` WHERE miasto LIKE '".$search_words."'")
         or die('Błąd w wyszukiwaniu! Prosimy spróbuj później');
         
 
 
-    $result2 = mysqli_query($con, "SELECT bilety.id, nazwa_podrozy, cena, klasa, panstwo, lotnisko, miasto FROM podroze INNER JOIN podroze_has_bilety ON podroze_has_bilety.podroze_id = podroze.id INNER JOIN bilety ON bilety.id = podroze_has_bilety.bilety_id INNER JOIN miejsce ON miejsce.id = bilety.miejsce_przylotu WHERE nazwa_podrozy LIKE '%".$search_words."%'");
+    $result2 = mysqli_query($con, "SELECT bilety.id, miasto_poczatkowe, miasto_koncowe, cena, klasa, panstwo, lotnisko, miasto, czas_wylotu, czas_dotarcia FROM podroze INNER JOIN podroze_has_bilety ON podroze_has_bilety.podroze_id = podroze.id INNER JOIN bilety ON bilety.id = podroze_has_bilety.bilety_id INNER JOIN miejsce ON miejsce.id = bilety.miejsce_przylotu INNER JOIN loty ON loty.id = bilety.loty_id WHERE miasto_koncowe LIKE '%".$search_words."%' AND miasto_poczatkowe LIKE '%".$search_words2."%'");
     
 
 
@@ -97,12 +117,12 @@ if ($result->num_rows > 0) {
 
     while( $row = $result->fetch_assoc())
     {
-  echo '<h4 class = "bilet-info"><b>Miejsce docelowe</b>: '.$row["panstwo"]."<br>"."<b>Miasto</b>: ".$row["miasto"]."<br>"."<b>Państwo</b>: ".$row["lotnisko"]."<br>"."<b>Lotnisko - kod IATA</b>: ".$row["IATA"].'<br></br><br></br></h4>';
+  echo '<h4 class = "bilet-info"><b>Państwo docelowe</b>: '.$row["panstwo"]."<br>"."<b>Miasto</b>: ".$row["miasto"]."<br>"."<b>Państwo</b>: ".$row["lotnisko"]."<br>"."<b>Lotnisko - kod IATA</b>: ".$row["IATA"].'<br></br><br></br></h4>';
     }
 
 
 while($row2 = $result2->fetch_assoc()) {
-    echo '<div id = "kontener">'."<b>Nazwa podróży: </b>".$row2['nazwa_podrozy']."<b> Cena: </b>".$row2['cena']."zł"."<b> Klasa: </b>".$row2['klasa']."<b>Miasto docelowe: </b>".$row2['miasto'].'<form action="oferta.php" method="post">
+    echo '<div id = "kontener">'."<b>Miasto początkowe: </b>".$row2['miasto_poczatkowe']."<b> Cena: </b>".$row2['cena']."zł"."<b> Klasa: </b>".$row2['klasa']."<b>Miasto docelowe: </b>".$row2['miasto_koncowe']."<b>Czas wylotu: </b>".$row2['czas_wylotu']."<b>Czas dotarcia: </b>".$row2['czas_dotarcia'].'<form action="oferta.php" method="post">
     <button type="submit" name="kupiony" value='.$row2["id"].' class="kup">Kup</button></form>'."<br></br>".'</div>';
 }
 
@@ -134,16 +154,17 @@ while($row2 = $result2->fetch_assoc()) {
     //Jeżeli ktoś nie zakupił jeszcze biletu. TO miejsce na historie
         if ((!isset($_POST['kupiony']))) {
 
-            $historia = mysqli_query($con, 'SELECT bilety_id, cena, klasa, panstwo, miasto, lotnisko, IATA, czas_wylotu, czas_dotarcia FROM pasazerowie_has_bilety INNER JOIN bilety ON bilety.id = pasazerowie_has_bilety.bilety_id INNER JOIN miejsce ON miejsce.id = bilety.miejsce_przylotu INNER JOIN loty ON loty.id = bilety.loty_id WHERE pasazerowie_has_bilety.pasazerowie_id = '.$_SESSION['id'].'' );
+            $historia = mysqli_query($con, 'SELECT bilety_id, cena, klasa, panstwo, miasto, lotnisko, IATA, czas_wylotu, czas_dotarcia, miasto_poczatkowe, miasto_koncowe FROM pasazerowie_has_bilety INNER JOIN bilety ON bilety.id = pasazerowie_has_bilety.bilety_id INNER JOIN miejsce ON miejsce.id = bilety.miejsce_przylotu INNER JOIN loty ON loty.id = bilety.loty_id  INNER JOIN podroze ON podroze.id = bilety.id WHERE pasazerowie_has_bilety.pasazerowie_id = '.$_SESSION['id'].'' );
 
             if($historia->num_rows > 0)
             {
                 echo '<h2 class= "bilet-info">Posiadasz już:</h2>'; 
                 while($row4 = $historia->fetch_assoc())
                 {
-                    echo '<div class = "kontener2">'."<b class = 'colour'>Id podróży: </b>"."<i>".$row4['bilety_id']."</i>"."<b class = 'colour'> Cena: </b>".$row4['cena']."zł"."<b class = 'colour'> Klasa: </b>".$row4['klasa']."<b class = 'colour'>Miasto docelowe: </b>".$row4['miasto']."<b class = 'colour'>Czas wylotu: </b>".$row4['czas_wylotu']."<br></br>".'</div>';
+                    echo '<div class = "kontener2">'."<b class = 'colour'>Id biletu: </b>"."<i>".$row4['bilety_id']."</i>"."<b class = 'colour'> Cena: </b>".$row4['cena']."zł"."<b class = 'colour'> Klasa: </b>".$row4['klasa']."<b class = 'colour'> Miasto docelowe: </b>".$row4['miasto_koncowe']."<b class = 'colour'>Miasto początowe: </b>".$row4['miasto_poczatkowe']."<b class = 'colour'>Czas wylotu: </b>".$row4['czas_wylotu']."<br></br>".'</div>';
                     
                 }
+                
             }else {
                 echo "<h4 id = bilet-info>Jeszcze nie posiadasz żadnego biletu. Zapraszamy do zakupu<h4>";
             }   
