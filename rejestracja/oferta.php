@@ -154,17 +154,17 @@ while($row2 = $result2->fetch_assoc()) {
     //Jeżeli ktoś nie zakupił jeszcze biletu. TO miejsce na historie
         if ((!isset($_POST['kupiony']))) {
 
-            $historia = mysqli_query($con, 'SELECT bilety_id, cena, klasa, panstwo, miasto, lotnisko, IATA, czas_wylotu, czas_dotarcia, miasto_poczatkowe, miasto_koncowe FROM pasazerowie_has_bilety INNER JOIN bilety ON bilety.id = pasazerowie_has_bilety.bilety_id INNER JOIN miejsce ON miejsce.id = bilety.miejsce_przylotu INNER JOIN loty ON loty.id = bilety.loty_id  INNER JOIN podroze ON podroze.id = bilety.id WHERE pasazerowie_has_bilety.pasazerowie_id = '.$_SESSION['id'].'' );
+            $historia = mysqli_query($con, 'SELECT bilety_id, cena, klasa, panstwo, miasto, lotnisko, IATA, czas_wylotu, czas_dotarcia, miasto FROM pasazerowie_has_bilety INNER JOIN bilety ON bilety.id = pasazerowie_has_bilety.bilety_id INNER JOIN miejsce ON miejsce.id = bilety.miejsce_przylotu INNER JOIN loty ON loty.id = bilety.loty_id  WHERE pasazerowie_has_bilety.pasazerowie_id = '.$_SESSION['id'].'' );
 
             if($historia->num_rows > 0)
             {
                 echo '<h2 class= "bilet-info">Posiadasz już:</h2>'; 
                 while($row4 = $historia->fetch_assoc())
                 {
-                    echo '<div class = "kontener2">'."<b class = 'colour'>Id biletu: </b>"."<i>".$row4['bilety_id']."</i>"."<b class = 'colour'> Cena: </b>".$row4['cena']."zł"."<b class = 'colour'> Klasa: </b>".$row4['klasa']."<b class = 'colour'> Miasto docelowe: </b>".$row4['miasto_koncowe']."<b class = 'colour'>Miasto początowe: </b>".$row4['miasto_poczatkowe']."<b class = 'colour'>Czas wylotu: </b>".$row4['czas_wylotu']."<br></br>".'</div>';
+                    echo '<div class = "kontener2">'."<b class = 'colour'>Id biletu: </b>"."<i>".$row4['bilety_id']."</i>"."<b class = 'colour'> Cena: </b>".$row4['cena']."zł"."<b class = 'colour'> Klasa: </b>".$row4['klasa']."<b class = 'colour'>Czas wylotu: </b>".$row4['czas_wylotu']."<b class = 'colour'> Miasto docelowe: </b>".$row4['miasto']."<br></br>".'</div>';
                     
                 }
-                
+                // "<b class = 'colour'> Miasto docelowe: </b>".$row4['miasto_koncowe']./////"<b class = 'colour'>Miasto początowe: </b>".$row4['miasto_poczatkowe'].
             }else {
                 echo "<h4 id = bilet-info>Jeszcze nie posiadasz żadnego biletu. Zapraszamy do zakupu<h4>";
             }   
@@ -241,7 +241,7 @@ while($row2 = $result2->fetch_assoc()) {
             </div>
 
             <div class="włochy">
-                <h1>#2.Włochy - Bergamo</h1>
+                <h1>#2.Włochy - Mediolan</h1>
                 <section><img src="img/wlochy.jpg" alt="włochy"></section>
                 <p>LTo 120-tysięczne miasto położone w Lombardii, na północy Włoch. Stanowi ono idealne miejsce, aby
                     poczuć klimat włoskich miasteczek, nasycić oczy pięknymi zabytkami i krajobrazami, posmakować kuchni
