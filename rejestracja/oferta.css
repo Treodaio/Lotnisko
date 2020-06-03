@@ -294,11 +294,15 @@ b.extended {
 }
 
 .kup:hover {
+    padding-right: 60px;
     padding-left: 60px;
     background-color: black;
     color: white;
 }
 
+.no_compromise {
+    font-weight: normal;
+}
 
 
 .form-control {

@@ -122,7 +122,7 @@ if ($result->num_rows > 0) {
 
 
 while($row2 = $result2->fetch_assoc()) {
-    echo '<div id = "kontener">'."<b>Miasto początkowe: </b>".$row2['miasto_poczatkowe']."<b> Cena: </b>".$row2['cena']."zł"."<b> Klasa: </b>".$row2['klasa']."<b>Miasto docelowe: </b>".$row2['miasto_koncowe']."<b>Czas wylotu: </b>".$row2['czas_wylotu']."<b>Czas dotarcia: </b>".$row2['czas_dotarcia'].'<form action="oferta.php" method="post">
+    echo '<div id = "kontener">'."<b>Miasto początkowe: ".$row2['miasto_poczatkowe']."</b>"."<b> Cena: </b>".$row2['cena']."zł"."<b> Klasa: </b>".$row2['klasa']."<b>Miasto docelowe: ".$row2['miasto_koncowe'].'</b>'."<b>Czas wylotu: </b>".$row2['czas_wylotu']."<b>Czas dotarcia: </b>".$row2['czas_dotarcia'].'<form action="oferta.php" method="post">
     <button type="submit" name="kupiony" value='.$row2["id"].' class="kup">Kup</button></form>'."<br></br>".'</div>';
 }
 
