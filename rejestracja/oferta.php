@@ -53,12 +53,10 @@ if (!isset($_POST['submit']))
     <p class = "moje_p">Wpisz miasto początkowe:</p> <span font-color: Black"></span>
     <input type="post" name="fraza2" class="form-control" maxlength="'.$max_length.'"><br>
     </div>
-
     <div class = "miasto_poczatkowe">
     <p class = "moje_p">Wpisz miasto docelowe:</p> <span font-color: Black"></span>
 	<input type="post" name="fraza" class="form-control" maxlength="'.$max_length.'"><br>
     </div>
-
 	<input type = "submit" name="submit" value="Szukaj połączeń" class="przycisklotu"/>
 	</form><br><br>';
 
@@ -276,11 +274,21 @@ while($row2 = $result2->fetch_assoc()) {
             <div class="szwajcaria">
                 <h1>#5.Szwajcaria - Genewa</h1>
                 <section><img src="img/szwajcaria.jpg" alt="genewa"> </section>
-                <p>Genewa (Geneva) to drugie co do wielkości miasto Szwajcarii i jedno z najbogatszych na świecie.
+                <p>Genewa (Genewa) to drugie co do wielkości miasto Szwajcarii i jedno z najbogatszych na świecie.
                     Malowniczo usytuowane nad brzegiem Jeziora Genewskiego u podnóża Alp, zaskakuje turystów swoim
                     pięknem, bogactwem ciekawych miejsc oraz przyjaznymi ludźmi. Genewa oprócz jeziora kojarzy się z
                     zegarkami, bankami oraz międzynarodowymi instytucjami, które tutaj mają swoje siedziby. To miasto
                     idealne na weekend, a dodatkowo bardzo romantyczne.</p>
+            </div>
+            <div class="krakow">
+                <h1>#6.Polska - Kraków</h1>
+                <section><img src="img/krakow.jpg" alt="genewa"> </section>
+                <p>Niepowtarzalna atmosfera Krakowa przyciąga jak magnes, szczególnie wyczuwa się to na
+                    kosmopolitycznym, krakowskim Rynku, ale i zaułki znacznie rzadziej odwiedzane, a może właśnie
+                    szczególnie one decydują o niepowtarzalności tego miejsca. Dlatego każdy turysta wraca tu
+                    niezliczoną ilość razy, a za każdym razem odkrywa coś nowego, coś pięknego. Kraków to przede
+                    wszystkim miasto młodych ludzi i to właśnie oni tworzą tutaj ten niecodzienny klimat, ponadto jest
+                    to centrum kultury i rozrywki.</p>
             </div>
         </main>
     </section>
