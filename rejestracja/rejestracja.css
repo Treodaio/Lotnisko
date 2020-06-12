@@ -11,7 +11,9 @@
 .wrapper {
     height: 200vh;
     padding-top: 10vh;
-    background: linear-gradient(to top, blue, rgb(47, 219, 219));
+    /* background: linear-gradient(to top, blue, rgb(47, 219, 219)); */
+    background: linear-gradient(to top, rgb(0, 255, 242), white);
+    /* background-color: black; */
     position: relative;
 }
 
@@ -276,6 +278,7 @@ input[type="checkbox"] {
     }
 
     main {
+        max-width: 1200px;
         width: 95%;
         top: 42%;
     }

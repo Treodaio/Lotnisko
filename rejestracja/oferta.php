@@ -162,7 +162,7 @@ while($row2 = $result2->fetch_assoc()) {
                     echo '<div class = "kontener2">'."<b class = 'colour'>Id biletu: </b>"."<i>".$row4['bilety_id']."</i>"."<b class = 'colour'> Cena: </b>".$row4['cena']."zł"."<b class = 'colour'> Klasa: </b>".$row4['klasa']."<b class = 'colour'>Czas wylotu: </b>".$row4['czas_wylotu']."<b class = 'colour'> Miasto docelowe: </b>".$row4['miasto']."<br></br>".'</div>';
                     
                 }
-                // "<b class = 'colour'> Miasto docelowe: </b>".$row4['miasto_koncowe']./////"<b class = 'colour'>Miasto początowe: </b>".$row4['miasto_poczatkowe'].
+               
             }else {
                 echo "<h4 id = bilet-info>Jeszcze nie posiadasz żadnego biletu. Zapraszamy do zakupu<h4>";
             }   
