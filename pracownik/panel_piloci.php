@@ -55,15 +55,16 @@ if($czas_pracy->num_rows > 0)
 
         echo  '<h2 class = "bilet-info">Nadchodzące podróże</h2>';
 
-
-        $historia_lotow = mysqli_query($con, 'SELECT czas_wylotu, czas_dotarcia FROM loty_has_piloci INNER JOIN loty ON loty.id = loty_has_piloci.loty_id WHERE loty_has_piloci.piloci_id = '.$_SESSION['id'].'' );
+        
+        // SELECT czas_wylotu, czas_dotarcia FROM loty_has_piloci INNER JOIN loty ON loty.id = loty_has_piloci.loty_id WHERE loty_has_piloci.piloci_id = '.$_SESSION['id'].'
+        $historia_lotow = mysqli_query($con, 'SELECT DISTINCT czas_wylotu, czas_dotarcia, miasto_poczatkowe, miasto_koncowe FROM loty_has_piloci INNER JOIN loty ON loty.id = loty_has_piloci.loty_id INNER JOIN bilety ON bilety.loty_id = loty.id INNER JOIN podroze_has_bilety ON podroze_has_bilety.bilety_id = bilety.id INNER JOIN podroze ON podroze.id = podroze_has_bilety.podroze_id WHERE loty_has_piloci.piloci_id = '.$_SESSION['id'].'' );
 
         if($historia_lotow->num_rows > 0)
         {
             // echo '<h2 class= "bilet-info">Oto najbliższe loty:</h2>'; 
             while($row = $historia_lotow->fetch_assoc())
             {
-                echo "<div class = 'container'><p>Czas wylotu: </b>".$row['czas_wylotu']."<p>Czas dotarcia: </b>".$row['czas_dotarcia']."<br></br></div>";
+                echo "<div class = 'container'><p>Czas wylotu: </b>".$row['czas_wylotu']."<p>Wylot z : </b>".$row['miasto_poczatkowe']."<p>Przylot do: </b>".$row['miasto_koncowe']."<p>Czas dotarcia: </b>".$row['czas_dotarcia']."<br></br></div>";
                 
             }
         }else {

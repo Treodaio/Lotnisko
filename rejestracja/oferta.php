@@ -36,7 +36,7 @@ if(!isset($_SESSION['zalogowany']))
     </aside>
 <aside class = "search">
 <h1>Tutaj wyszukasz interesującą Cię destynacje</h1>
-
+<p>Realizuejmy loty na linii Kraków - wybrane przez Ciebie miasto</p>
 <?php
 $con= mysqli_connect ("localhost","root","","lotnisko");
 
@@ -115,7 +115,7 @@ if ($result->num_rows > 0) {
 
     while( $row = $result->fetch_assoc())
     {
-  echo '<h4 class = "bilet-info"><b>Państwo docelowe</b>: '.$row["panstwo"]."<br>"."<b>Miasto</b>: ".$row["miasto"]."<br>"."<b>Państwo</b>: ".$row["lotnisko"]."<br>"."<b>Lotnisko - kod IATA</b>: ".$row["IATA"].'<br></br><br></br></h4>';
+  echo '<h4 class = "bilet-info"><b>Państwo </b>: '.$row["panstwo"]."<br>"."<b>Miasto</b>: ".$row["miasto"]."<br>"."<b>Lotnisko - kod IATA</b>: ".$row["IATA"].'<br></br><br></br></h4>';
     }
 
 
