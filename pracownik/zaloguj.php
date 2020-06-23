@@ -31,7 +31,7 @@ if ($polaczenie ->connect_errno!=0)
     $login = htmlentities($login, ENT_QUOTES, "UTF-8");
     $haslo = htmlentities($haslo, ENT_QUOTES, "UTF-8");
     
-    //PILOT // potrzebuje zapytania o wykonywanych lotach
+    //PILOT //
     if($wybor == '1'){
         if ($rezultat = $polaczenie->query(sprintf("SELECT * FROM piloci WHERE login = '%s' AND haslo = '%s'", mysqli_real_escape_string($polaczenie, $login),
     mysqli_real_escape_string($polaczenie, $haslo))))
@@ -59,7 +59,7 @@ if ($polaczenie ->connect_errno!=0)
         }
     }
 
-    //OBSLUGA SPRZATAJACA informacja o samolotach wypisująca się "na sztywno"
+    //OBSLUGA SPRZATAJACA 
     if($wybor == '2'){
 
         if ($rezultat = $polaczenie->query(sprintf("SELECT * FROM obslugasprzatajaca WHERE login = '%s' AND haslo = '%s'", mysqli_real_escape_string($polaczenie, $login),
@@ -91,7 +91,7 @@ if ($polaczenie ->connect_errno!=0)
     }
 
 
-        //OBSLUGA INFORMACYJNA // potrzebuje dodatkowego zapytania o pasażerach oraz możliwości kupienia biletu, tak samo jak moze to zrobić pasażer
+        //OBSLUGA INFORMACYJNA 
    if($wybor == '3')
    {
     if ($rezultat = $polaczenie->query(sprintf("SELECT * FROM obslugainformacyjna WHERE login = '%s' AND haslo = '%s'", mysqli_real_escape_string($polaczenie, $login),
@@ -121,7 +121,7 @@ if ($polaczenie ->connect_errno!=0)
         }
         }
         //OCHRONA 
-        //potrzebuje drugiej kwerendy wyjmującej z tabeli pośreniej wszystkich pasażerów zarejestrowanych na stronie wraz z ich informacjami 
+        
     if($wybor == 4){
         if ($rezultat = $polaczenie->query(sprintf("SELECT * FROM ochrona WHERE login = '%s' AND haslo = '%s'", mysqli_real_escape_string($polaczenie, $login),
     mysqli_real_escape_string($polaczenie, $haslo))))

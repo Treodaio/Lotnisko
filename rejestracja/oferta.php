@@ -159,7 +159,8 @@ while($row2 = $result2->fetch_assoc()) {
                 echo '<h2 class= "bilet-info">Posiadasz już:</h2>'; 
                 while($row4 = $historia->fetch_assoc())
                 {
-                    echo '<div class = "kontener2">'."<b class = 'colour'>Id biletu: </b>"."<i>".$row4['bilety_id']."</i>"."<b class = 'colour'> Cena: </b>".$row4['cena']."zł"."<b class = 'colour'> Klasa: </b>".$row4['klasa']."<b class = 'colour'>Czas wylotu: </b>".$row4['czas_wylotu']."<b class = 'colour'> Miasto docelowe: </b>".$row4['miasto']."<br></br>".'</div>';
+                    echo '<div class = "kontener2">'."<b class = 'colour'>Id biletu: </b>"."<i>".$row4['bilety_id']."</i>"."<b class = 'colour'> Cena: </b>".$row4['cena']."zł"."<b class = 'colour'> Klasa: </b>".$row4['klasa']."<b class = 'colour'>Czas wylotu: </b>".$row4['czas_wylotu']."<b class = 'colour'> Miasto docelowe: </b>".$row4['miasto']."<br></br>".'<form action="oferta.php" method="post">
+                    <button type="submit" name="usun" value='.$row4["bilety_id"].' class="zwroc">Zwróć</button></form>'.'</div>';
                     
                 }
                
@@ -213,10 +214,23 @@ while($row2 = $result2->fetch_assoc()) {
         }
      
         ?> 
-        <!-- M O J E K O N T O    -->
+      
 
-
-
+        <?php
+  $con= mysqli_connect ("localhost","root","","lotnisko");
+        
+  
+    //Usuwanie biletu
+        if ((isset($_POST['usun']))) {
+        
+           $usuwamy = $_POST['usun'];
+        //    $sql = 'DELETE FROM `pasazerowie_has_bilety` WHERE bilety_id = '.$usuwamy.' AND pasazerowie_id = '.$_SESSION['id'].'';
+            $kwerenda = mysqli_query($con,'DELETE FROM `pasazerowie_has_bilety` WHERE bilety_id = '.$usuwamy.' AND pasazerowie_id = '.$_SESSION['id'].'');
+            
+            echo "<script>alert('Usunięto bilet. Prosimy odświeżyć stronę internetową.')</script>";
+        }
+        mysqli_close($con);
+        ?> 
 </section>
     <section class = "oferta">
     <main>

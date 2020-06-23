@@ -38,7 +38,8 @@ if ((isset($_POST['imie'])))
     }
 
 
-    if ( (strlen($imie)<1) || (strlen($nazwisko)<1) || (strlen($kraj)<1) || (strlen($paszport)<1)|| (strlen($dowod)<1)|| (strlen($login)<1) || (strlen($email)<1) || (strlen($haslo)<1) || (strlen($haslo2)<1))  {
+    if ( (strlen($imie)<1) || (strlen($nazwisko)<1) || (strlen($kraj)<1) || (strlen($paszport)<1)|| 
+    (strlen($dowod)<1)|| (strlen($login)<1) || (strlen($email)<1) || (strlen($haslo)<1) || (strlen($haslo2)<1))  {
         $wszystko_ok = false;
         $_SESSION['error'] = "Nie wszystkie pola zostały wypełnione!";
     }
