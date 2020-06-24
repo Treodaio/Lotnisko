@@ -31,7 +31,8 @@ if(!isset($_SESSION['zalogowany']))
     echo '<p class = "info">Nr paszportu : '.$_SESSION['paszport'].'</p>';
     echo '<p class = "info">Nr dowodu: ".'.$_SESSION['dowod'].'"</p>';
     echo '<p>Login: '.$_SESSION['login'].'</p>';
-    echo "<p>E-mail: ".$_SESSION['email']."</p>";
+    echo '<p>E-mail: '.$_SESSION["email"].'</p>';
+    echo '<button class = "zmiana"><a href = "zmiana.php">Zmień swój e-mail</a></button>';
     ?>
     </aside>
 <aside class = "search">
@@ -224,7 +225,7 @@ while($row2 = $result2->fetch_assoc()) {
         if ((isset($_POST['usun']))) {
         
            $usuwamy = $_POST['usun'];
-        //    $sql = 'DELETE FROM `pasazerowie_has_bilety` WHERE bilety_id = '.$usuwamy.' AND pasazerowie_id = '.$_SESSION['id'].'';
+      
             $kwerenda = mysqli_query($con,'DELETE FROM `pasazerowie_has_bilety` WHERE bilety_id = '.$usuwamy.' AND pasazerowie_id = '.$_SESSION['id'].'');
             
             echo "<script>alert('Usunięto bilet. Prosimy odświeżyć stronę internetową.')</script>";

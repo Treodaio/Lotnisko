@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100vw;
+    height: 100vh;
+    font-size: 10px;
+    background-color: #24292e;
+
+}
+
+
+.wrap {
+    background: url("img/tapetka.jpg");
+    background-size: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px 60px;
+    border: 2px solid black;
+    border-radius: 16px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.6rem;
+}
+
+.zmiana {
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 26px;
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid black;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.zmiana a {
+    color: black;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: .3s;
+}
+
+.zmiana:hover {
+    background-color: black;
+}
+
+.zmiana:hover a {
+    color: white;
+}
+
+input {
+    margin-left: 2%;
+    padding: 2%;
+    border-radius: 16px;
+}
+
+.przycisklotu {
+    font-weight: bold;
+    font-size: 16px;
+    padding: 2%;
+    background-color: #fff;
+    border: 2px solid black;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.przycisklotu:hover {
+    border: 2px solid white;
+    background-color: black;
+    color: white;
+}
