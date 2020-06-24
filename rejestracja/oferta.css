@@ -315,24 +315,26 @@ b.extended {
 
 .zwroc {
     position: absolute;
-    left: 75%;
+    left: 65%;
     transform: translateY(-400%);
     padding: 15px;
     padding-left: 40px;
     padding-right: 40px;
     margin-top: 1%;
-    color: white;
+    background-color: white;
+    color: black;
+
     border: 2px solid white;
     border-radius: 16px;
-    background-color: transparent;
+
     transition: .3s;
     cursor: pointer;
 
 }
 
 .zwroc:hover {
-    background-color: white;
-    color: black;
+    background-color: transparent;
+    color: white;
 }
 
 .kup {
