@@ -9,10 +9,10 @@
 <body>
     <aside class="wrap">
 <?php
- echo '<button class = "zmiana"><a href = "oferta.php">Powrót</a></button>';
+ echo '<button class = "zmiana"><a href = "oferta.php">Powrót do oferty</a></button>';
 ?>
     <h1>Tutaj zmienimy Twojego maila</h1>
-    <p>Podaj nowy e-mail</p>
+    <p>Podaj nowy e-mail:</p>
     <form action="" method = "POST">
     <input type="text" name = "nowy_mail">
    

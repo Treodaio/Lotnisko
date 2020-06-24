@@ -25,22 +25,23 @@
 main {
     background-color: #24292e;
     /* color: white; */
-    width: 75%;
+    width: 50%;
     height: auto;
     padding: 1%;
     border: 2px solid transparent;
     border-radius: 4px;
-    margin: 0 auto;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
-    max-width: 650px;
+    /* max-width: 650px; */
+
 }
 
 
 /* FORMULARZ REJESTRACJI - POCZATEK */
 
 form {
-    flex-basis: 70%;
+    flex-basis: 50%;
     display: flex;
     flex-direction: column;
 }
@@ -62,7 +63,7 @@ select {
 
 label {
     border: 2px solid transparent;
-    flex-basis: 10%;
+    /* flex-basis: 10%; */
     margin-bottom: 2%;
 }
 
@@ -72,11 +73,11 @@ label {
 }
 
 label input {
-    font-size: 2.5em;
+    font-size: 3em;
     background-color: rgba(69, 79, 88, 0.6);
     color: #aab1be;
-    margin-left: -10%;
-    width: 125%;
+    margin-left: calc(100% / 8 - 60%);
+    width: 200%;
     height: 100%;
     border: 2px solid transparent;
     border-radius: 10px;
@@ -84,7 +85,7 @@ label input {
 }
 
 .edycja {
-    width: 80%;
+    width: 50%;
 }
 
 .edycja p {
@@ -104,6 +105,7 @@ label input {
     margin-top: 20px;
     margin-bottom: 20px;
     cursor: pointer;
+    transition: .3s;
 }
 
 
@@ -121,14 +123,14 @@ label input {
 
 button {
     flex-basis: 10%;
-    width: 50%;
+    width: 60%;
     margin-left: calc(100% / 2 - 25%);
     border: 2px solid #33e05e;
     border-radius: 16px;
     padding: 10px;
     background-color: #24292e;
     color: #33e05e;
-    font-size: 2rem;
+    font-size: 3rem;
     margin-top: 20px;
     margin-bottom: 20px;
     cursor: pointer;
@@ -193,16 +195,18 @@ input[type="checkbox"] {
 /* FORMULARZ REJESTRACJI -- KONIEC */
 aside {
     background-color: #24292e;
-    width: 75%;
+    width: 50%;
     margin: 0 auto;
     flex-basis: auto;
-    border: 2px solid transparent;
+    border-bottom: 5px solid white;
+    /* border-bottom: 5px solid #33e05e; */
     border-radius: 4px;
     padding: 4%;
-    margin-top: 4%;
+    /* margin-top: 1%; */
 }
 
 aside h1 {
+    padding: 10px;
     text-align: center;
     font-size: 2rem;
 }
@@ -237,7 +241,7 @@ h3 {
     text-align: center;
     margin-bottom: 10px;
     border-radius: 8px;
-    border: 2px solid #33e05e;
+    /* border: 2px solid #33e05e; */
     font-size: 20px;
     font-weight: bold;
     padding: 20px;

@@ -160,11 +160,11 @@ $con-> close();
                 <label id="haslo" for="haslo"><input type="password"  name="haslo" placeholder="Hasło"></label>
                 <label id="haslo_2" for="haslo"><input type="password" name="haslo2" placeholder="Powtórz hasło"></label>
                 <div id="accept">
-                   <input type="checkbox" name="checkbox" value = "">Akceptuję
-                        <a href="../regulamin/regulamin.html">regulamin</a>
+                   <input type="checkbox" name="checkbox" value = "">Akceptacja
+                        <a href="../regulamin/regulamin.html">regulaminu</a>
                 </div>
 
-                <button>Zarejestruj się</button>
+                <button>Rejestruj</button>
             </form>
          
         </main></aside>
