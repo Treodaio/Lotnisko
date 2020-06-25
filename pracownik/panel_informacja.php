@@ -168,5 +168,34 @@ $con-> close();
             </form>
          
         </main></aside>
+        <aside>
+        <h1>Historia aktualizacji użytkowników</h1>
+        
+        
+ <?php
+//  Wyświetlenie historii
+
+  $con= mysqli_connect("localhost","root","","lotnisko");
+
+
+   $sql = mysqli_query($con, "SELECT * FROM historia");
+
+   if($sql->num_rows > 0)
+            {
+                 
+                while($row = $sql->fetch_assoc())
+                {
+                    echo '<h4 class= "bilet-info">'."ID klienta:".$row['klient_id']." Akcja: ".$row['Akcja']." Czas dokonania: ".$row['Czas'];
+                }
+               
+            }else {
+
+                echo "<h1>Nikt jeszcze nie edytował konta.</h1>";
+            }  
+
+$con-> close();
+ ?>
+
+        </aside>
 </body>
 </html>
